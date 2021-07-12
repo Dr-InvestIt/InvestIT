@@ -8,6 +8,8 @@ from datetime import date, timedelta
 import pandas as pd
 import numpy as np
 import matplotlib.pyplot as plt
+import io
+import urllib, base64
 
 # Create your views here.
 def say_hello(request):
@@ -27,20 +29,27 @@ def get_stock(request):
         return render(request, 'name.html', {'form':form})
 
 def stock(request):
-    
-    if request.method == "POST":
-        form = NameForm(request.POST)
-        if form.is_valid():
-            stockname = form.cleaned_data['stockname']
-            stockname = stockname.replace(" ", "")
-            stocknames = stockname.split(",")
-            print(stocknames)
-            plot_stock_together(stocknames)
-            plt.show()
-            
-
+    string = ""
+    uri = 'data:image/png;base64,' + urllib.parse.quote(string)
+    form = NameForm(request.POST or None)
+    if form.is_valid():
+        stockname = form.cleaned_data['stockname']
+        stockname = stockname.replace(" ", "")
+        stocknames = stockname.split(",")
+        print(stocknames)
+        plot_stock_together(stocknames)
+        fig = plt.gcf()
+        buf = io.BytesIO()
+        fig.savefig(buf, format='png')
+        buf.seek(0)
+        string = base64.b64encode(buf.read())
+        uri = 'data:image/png;base64,' + urllib.parse.quote(string)
     form = NameForm()
-    return render(request, "form.html", {"form": form})
+    context = {
+        'form' : form, 
+        'image' : uri
+    }
+    return render(request, "form.html", context)
 
 def plot_stock_together(list_of_stocks):
     

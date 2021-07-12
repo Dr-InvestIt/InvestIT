@@ -10,6 +10,9 @@ yahoofinancials = "*"
 pandas = "*"
 matplotlib = "*"
 numpy = "*"
+yfinance = "*"
+pandas-datareader = "*"
+scipy = "*"
 
 [dev-packages]
 

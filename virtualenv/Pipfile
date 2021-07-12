@@ -6,6 +6,10 @@ name = "pypi"
 [packages]
 requests = "*"
 django = "==3.2.5"
+yahoofinancials = "*"
+pandas = "*"
+matplotlib = "*"
+numpy = "*"
 
 [dev-packages]
 

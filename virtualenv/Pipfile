@@ -13,6 +13,7 @@ numpy = "*"
 yfinance = "*"
 pandas-datareader = "*"
 scipy = "*"
+djangorestframework = "*"
 
 [dev-packages]
 

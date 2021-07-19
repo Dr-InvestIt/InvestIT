@@ -1,8 +1,0 @@
-from django.urls import path
-from . import views
-
-urlpatterns = [
-    path('hello/', views.say_hello), 
-    path('action_page/', views.action_page),
-    path('form/', views.stock)
-]

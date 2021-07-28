@@ -16,10 +16,12 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path, include
 from stocks.views import stock_create_view
+from stocks.views import stock_detail_view
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('stock/',stock_create_view),
-    path('api/', include('api.urls')), 
+    path('stock/', stock_create_view),
+    path('api/', include('api.urls')),
+    path('stock/<str:stock_id>', stock_detail_view),
     path('', include('frontend.urls'))
 ]

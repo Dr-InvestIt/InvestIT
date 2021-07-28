@@ -9,8 +9,13 @@ export default class App extends Component {
 
     render() {
         return <div>
+            <select>
+                <option value ="Volatility">Volatility</option>
+                <option value="Efficient">Efficient Frontier</option>
+                <option selected value="select">Choose the graph</option>
+            </select>
             <HomePage></HomePage>
-            <p>Hello this.props.name</p>
+            <p>Hello { this.props.name }</p>
         </div>;
     }
 }

@@ -25,7 +25,7 @@ class Stock(models.Model):
         # stock_id.replace(" ", "")
         stock_id = stock_name.replace(" ", "")
         list_of_stocks = stock_id.split(",")
-
+        print(list_of_stocks)
         for stock_symbol in list_of_stocks:
 
             # set date range for historical prices

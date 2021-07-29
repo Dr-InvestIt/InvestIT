@@ -162,9 +162,10 @@ def stock_volatility(list_of_stocks):
     import pandas as pd
     import numpy as np
     import matplotlib.pyplot as plt
-
+    stock_id = list_of_stocks.replace(" ", "")
+    list_of_stocks = stock_id.split(",")
     fig, ax = plt.subplots(1, 1, figsize=(7, 5))
-
+    print(type(list_of_stocks))
     for stock_symbol in list_of_stocks:
 
         # set date range for historical prices
@@ -192,7 +193,7 @@ def stock_volatility(list_of_stocks):
         prices['daily std'] = daily_std
         # annualized daily standard deviation
         std = daily_std * 252 ** 0.5
-        print(prices)
+        # print(prices)
 
         data1 = prices.returns.values
 

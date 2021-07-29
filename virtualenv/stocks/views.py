@@ -9,14 +9,47 @@ import urllib
 import base64
 
 
-def stock_create_view(request):
+def index_view(request):
+
+    return render(request, 'stocks/index.html')
+
+
+def stock_create_volatility_view(request):
     graph_form = GraphForm(request.POST or None)
     form = StockForm(request.POST or None)
     uri = ''
     if form.is_valid():
         stock_name = form.cleaned_data.get('stock_id')
         print(stock_name)
-        Stock.stock_volatility(stock_name)
+        stock_volatility(stock_name)
+        # plt.show()
+        fig = plt.gcf()
+        buf = io.BytesIO()
+        fig.savefig(buf, format='png')
+        buf.seek(0)
+        string = base64.b64encode(buf.read())
+        uri = 'data:image/png;base64,' + urllib.parse.quote(string)
+        # form.save()
+    graph_form = GraphForm()
+    form = StockForm()
+
+    context = {
+        'graph_form': graph_form,
+        'form': form,
+        'image': uri
+    }
+
+    return render(request, 'stocks/stock_create.html', context)
+
+
+def stock_create_efficient_frontier_view(request):
+    graph_form = GraphForm(request.POST or None)
+    form = StockForm(request.POST or None)
+    uri = ''
+    if form.is_valid():
+        stock_name = form.cleaned_data.get('stock_id')
+        print(stock_name)
+        efficient_frontier(stock_name)
         # plt.show()
         fig = plt.gcf()
         buf = io.BytesIO()

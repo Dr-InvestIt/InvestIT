@@ -1,13 +1,20 @@
 {%extends 'base.html'%}
 
 {%block content%}
-<form method = 'POST'> {%csrf_token%}
-    {{form.as_p}}
-    <input type = 'submit' value = 'Go'/>
+
+
+<br>
+<div class = 'form-group'>
+    <form method = 'POST'> {%csrf_token%}
+        {{form.as_p}}
+        <input type = 'submit' value = 'Go'/>
+    </form>
+        
+    <p></p>
     <img src="{{ image }}">
-    <p></p>
-</form>
-<div>
-    <p></p>
 </div>
+
+<!-- <div>
+    <p></p>
+</div> -->
 {%endblock%}

@@ -142,7 +142,7 @@ def efficient_frontier(stocks):
     min_vol_ret = ret_arr[vol_arr.argmin()]
 
     # plot scatter point with highest sharpe is highlighted
-    plt.figure(figsize=(12, 8))
+    plt.figure(figsize=(16, 8))
     plt.scatter(vol_arr, ret_arr, c=sharpe_arr, cmap='YlGnBu')
     plt.colorbar(label='Sharpe Ratio')
     plt.xlabel('Volatility')
@@ -164,7 +164,7 @@ def stock_volatility(list_of_stocks):
     import matplotlib.pyplot as plt
     stock_id = list_of_stocks.replace(" ", "")
     list_of_stocks = stock_id.split(",")
-    fig, ax = plt.subplots(1, 1, figsize=(7, 5))
+    fig, ax = plt.subplots(1, 1, figsize=(12, 6))
     print(type(list_of_stocks))
     for stock_symbol in list_of_stocks:
 

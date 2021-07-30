@@ -25,10 +25,11 @@ class MACDCross(bt.SignalStrategy):
 
 
 cerebro = bt.Cerebro()
-cerebro.addstrategy(MACDCross)
+# cerebro.addstrategy(MACDCross)
+cerebro.addstrategy(SmaCross)
 
 data = bt.feeds.PandasData(dataname=yf.download(
-    'SPY', '2015-07-06', '2021-07-01', auto_adjust=True))
+    'PLUG', '2015-07-06', '2020-01-01', auto_adjust=True))
 
 cerebro.adddata(data)
 

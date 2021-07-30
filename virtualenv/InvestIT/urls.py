@@ -20,7 +20,6 @@ from stocks.views import *
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('stock/', stock_create_volatility_view),
-    path('api/', include('api.urls')),
     path('stock/<str:stock_id>', stock_detail_view),
     path('', include('stocks.urls'))
 ]

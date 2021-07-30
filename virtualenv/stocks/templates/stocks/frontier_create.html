@@ -1,6 +1,7 @@
 {%extends 'base.html'%}
 
 {%block content%}
+<br>
 <p>Enter stock ID to see the efficiency frontier</p>
 <form method = 'POST'> {%csrf_token%}
     {{form.as_p}}

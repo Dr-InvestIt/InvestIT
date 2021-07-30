@@ -14,4 +14,10 @@
     </style>
 </head>
 <h1>Welcome to InvestIT</h1>
+
+<script>
+    var path = location.pathname;
+    var activeItem = document.querySelector("a[href='" + path + "']");
+    activeItem.className = 'a active';
+</script>
 {%endblock%}

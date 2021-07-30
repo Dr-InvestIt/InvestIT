@@ -11,4 +11,10 @@
         <p></p>
     </form>
 </div>
+
+<script>
+    var path = location.pathname;
+    var activeItem = document.querySelector("a[href='" + path + "']");
+    activeItem.className = 'a active';
+</script>
 {%endblock%}

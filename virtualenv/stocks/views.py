@@ -67,7 +67,7 @@ def stock_create_efficient_frontier_view(request):
         'image': uri
     }
 
-    return render(request, 'stocks/stock_create.html', context)
+    return render(request, 'stocks/frontier_create.html', context)
 
 
 def stock_detail_view(request, stock_id, *args, **kwargs):

@@ -31,10 +31,15 @@ start_portfolio_value = cerebro.broker.getvalue()
 cerebro.broker.setcash(10000.00)
 cerebro.addsizer(bt.sizers.AllInSizer, percents=95)
 
-cerebro.run()
+cerebro.addanalyzer(bt.analyzers.SharpeRatio, _name='mysharpe')
+
+thestrats = cerebro.run()
+thestrat = thestrats[0]
 
 print('Final Portfolio Value: %.2f' % cerebro.broker.getvalue())
 end_portfolio_value = cerebro.broker.getvalue()
 print("PnL:", end_portfolio_value - start_portfolio_value)
+
+print('Sharpe Ratio:', thestrat.analyzers.mysharpe.get_analysis())
 
 cerebro.plot()

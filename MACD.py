@@ -9,7 +9,6 @@ BTVERSION = tuple(int(x) for x in bt.__version__.split('.'))
 
 
 class MacdCross(bt.SignalStrategy):
-    # lines = ('macd', 'signal', 'histo')
     params = (
         ('macd1', 12),
         ('macd2', 26),
@@ -28,7 +27,7 @@ class MacdCross(bt.SignalStrategy):
         # self.l.signal = EMA(
         #     self.l.macd, period=self.p.period_signal, plotname='signal')
         # self.l.histo = self.l.macd - self.l.signal
-        self.macd = bt.ind.MACD(
+        self.macd = bt.ind.MACDHisto(
             self.data,
             period_me1=self.p.macd1,
             period_me2=self.p.macd2,
@@ -36,7 +35,8 @@ class MacdCross(bt.SignalStrategy):
 
         self.mcross = bt.ind.CrossOver(self.macd.macd, self.macd.signal)
 
-        self.atr = bt.ind.ATR(self.data, period=self.p.atrperiod)
+        self.atr = bt.ind.ATR(
+            self.data, period=self.p.atrperiod, plotname='ATR')
 
         self.sma = bt.ind.SMA(
             self.data, period=self.p.smaperiod, plotname='SMA')
@@ -51,7 +51,7 @@ class MacdCross(bt.SignalStrategy):
             return  # pending order execution
 
         if not self.position:  # not in the market
-            if self.mcross[0] > 0.0 and self.smadir < 0.0:
+            if self.mcross[0] > 0.0 and self.smadir < 0.0:  # logic for deciding when to buy
                 self.order = self.buy()
                 pdist = self.atr[0] * self.p.atrdist
                 self.pstop = self.data.close[0] - pdist
@@ -74,30 +74,10 @@ class MacdCross(bt.SignalStrategy):
             self.order = None
 
 
-# def runstrat(args=None):
-#     cerebro = bt.Cerebro()
-#     cerebro.broker.set_cash(10000.00)
-
-#     stock = 'PLUG'
-
-#     # set from date
-#     fromdate = '2015-07-06'
-
-#     # set to date
-#     todate = '2020-01-01'
-
-#     data = bt.feeds.PandasData(dataname=yf.download(
-#         stock, fromdate, todate, auto_adjust=True))
-#     cerebro.adddata(data)
-
-#     cerebro.addstrategy(MacdCross)
-
-#     # cerebro.addsizer(FixedPerc)
-
-
 cerebro = bt.Cerebro()
 cerebro.addstrategy(MacdCross)
 
+# Define your backtest
 stock = 'AAPL'
 
 fromdate = '2015-07-06'

@@ -10,22 +10,14 @@ class SmaCross(bt.SignalStrategy):
         crossover = bt.ind.CrossOver(price, sma)
         self.signal_add(bt.SIGNAL_LONG, crossover)
 
-
-class MACDCross(bt.SignalStrategy):
-    def __init__(self):
-        self.macd = bt.indicators.MACD(
-            self.data, period_me1=self.p.macd1, period_me2=self.p.macd2, period_signal=self.p.macdsig)
-
-        self.mcross = bt.indicators.CrossOver(self.macd.macd, self.macd.signal)
-
-        self.atr = bt.indicators.ATR(self.data, period=self.p.atrperiod)
-
-        self.sma = bt.indicators.SMA(self.data, period=self.p.smaperiod)
-        self.smadir = self.sma - self.sma(-self.p.dirperiod)
+# class SmaCross(bt.SignalStrategy):
+#     def __init__(self):
+#         sma1, sma2 = bt.ind.SMA(period=10), bt.ind.SMA(period=30)
+#         crossover = bt.ind.CrossOver(sma1, sma2)
+#         self.signal_add(bt.SIGNAL_LONG, crossover)
 
 
 cerebro = bt.Cerebro()
-# cerebro.addstrategy(MACDCross)
 cerebro.addstrategy(SmaCross)
 
 data = bt.feeds.PandasData(dataname=yf.download(
@@ -40,8 +32,9 @@ cerebro.broker.setcash(10000.00)
 cerebro.addsizer(bt.sizers.AllInSizer, percents=95)
 
 cerebro.run()
-cerebro.plot()
 
 print('Final Portfolio Value: %.2f' % cerebro.broker.getvalue())
 end_portfolio_value = cerebro.broker.getvalue()
 print("PnL:", end_portfolio_value - start_portfolio_value)
+
+cerebro.plot()

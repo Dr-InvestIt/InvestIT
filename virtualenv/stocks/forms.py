@@ -13,6 +13,18 @@ class StockForm(forms.ModelForm):
             'stock_id': forms.TextInput(attrs={'class':'form-control form-control-lg','placeholder': 'eg.AAPL,TSM,FB'})
         }
 
+class EfficientForm(forms.ModelForm):
+    class Meta:
+        model = Stock
+        fields = [
+            'stock_id',
+            'enter_your_portfolio'
+        ]
+        widgets = {
+            'stock_id': forms.TextInput(attrs={'class':'form-control form-control-lg','placeholder': 'eg.AAPL,TSM,FB'}),
+            'Enter your own portfolio': forms.CheckboxInput(attrs={'class':'form-control form-control-lg'})
+        }
+
 class GraphForm(forms.Form):
     graph = forms.CharField(label='Which graph do you want?', widget=forms.Select(
         choices=[("volatility", "Volatility"), ("efficient-frontier", "Efficient Frontier")]))

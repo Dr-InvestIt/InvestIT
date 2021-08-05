@@ -44,7 +44,7 @@ def stock_create_volatility_view(request):
 
 def stock_create_efficient_frontier_view(request):
     graph_form = GraphForm(request.POST or None)
-    form = StockForm(request.POST or None)
+    form = EfficientForm(request.POST or None)
     uri = ''
     if form.is_valid():
         stock_name = form.cleaned_data.get('stock_id')
@@ -59,7 +59,7 @@ def stock_create_efficient_frontier_view(request):
         uri = 'data:image/png;base64,' + urllib.parse.quote(string)
         # form.save()
     graph_form = GraphForm()
-    form = StockForm()
+    form = EfficientForm()
 
     context = {
         'graph_form': graph_form,

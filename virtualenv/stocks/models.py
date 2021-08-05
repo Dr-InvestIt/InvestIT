@@ -5,12 +5,12 @@ from django.db import models
 
 class Stock(models.Model):
     stock_id = models.CharField(max_length=1000)
-
+    enter_your_portfolio = models.BooleanField()
     def get_stock_id():
         return stock_id
 
-    def enter_stock(stock_name):
-        stock_id = stock_name
+    def get_enter_your_portfolio():
+        return enter_your_portfolio
 
     def stock_volatility(stock_name):
         from yahoofinancials import YahooFinancials

@@ -1,4 +1,5 @@
 # from stocks.forms import StockForm
+from django.http.response import HttpResponseRedirect
 from django.shortcuts import render
 from django.http import HttpResponse, Http404, JsonResponse
 from .models import *
@@ -12,6 +13,22 @@ import base64
 def index_view(request):
 
     return render(request, 'stocks/index.html')
+
+
+def add_stock(response):
+    if response.method == 'POST':
+        form = EfficientForm(response.POST)
+
+        if form.is_valid():
+            name = form.cleaned_data['stock_id']
+            value = form.cleaned_data['stock_value']
+            t = Stock(stock_id=name, stock_value=value)
+            t.save()
+
+        return HttpResponseRedirect('frontier')
+    else:
+        form = EfficientForm()
+    return render(response, 'stocks/add_stock.html', {'form': form})
 
 
 def stock_create_volatility_view(request):
@@ -33,11 +50,7 @@ def stock_create_volatility_view(request):
     graph_form = GraphForm()
     form = StockForm()
 
-    context = {
-        'graph_form': graph_form,
-        'form': form,
-        'image': uri
-    }
+    context = {'graph_form': graph_form, 'form': form, 'image': uri}
 
     return render(request, 'stocks/stock_create.html', context)
 
@@ -45,6 +58,9 @@ def stock_create_volatility_view(request):
 def stock_create_efficient_frontier_view(request):
     graph_form = GraphForm(request.POST or None)
     form = EfficientForm(request.POST or None)
+
+    stocks = Stock.objects.all()
+
     uri = ''
     if form.is_valid():
         stock_name = form.cleaned_data.get('stock_id')
@@ -64,7 +80,8 @@ def stock_create_efficient_frontier_view(request):
     context = {
         'graph_form': graph_form,
         'form': form,
-        'image': uri
+        'image': uri,
+        'stocks': stocks
     }
 
     return render(request, 'stocks/frontier_create.html', context)
@@ -75,10 +92,7 @@ def stock_detail_view(request, stock_id, *args, **kwargs):
     graph_form = GraphForm(request.POST or None)
     graph_form = GraphForm()
 
-    context = {
-        'form': graph_form,
-        'image': uri
-    }
+    context = {'form': graph_form, 'image': uri}
 
     return render(request, 'stocks/stock_create.html', context)
 
@@ -97,7 +111,7 @@ def efficient_frontier(stocks):
 
     # obtain today's date
     today = date.today()
-    five_years_ago = today-timedelta(days=5*365)
+    five_years_ago = today - timedelta(days=5 * 365)
 
     today = today.strftime("%Y-%m-%d")
     five_years_ago = five_years_ago.strftime("%Y-%m-%d")
@@ -108,7 +122,7 @@ def efficient_frontier(stocks):
     closing_price = data['Adj Close']
 
     # compute daily log return
-    log_ret = np.log(closing_price/closing_price.shift(1))
+    log_ret = np.log(closing_price / closing_price.shift(1))
 
     # create portfolios with random weights
     np.random.seed(41)
@@ -121,7 +135,7 @@ def efficient_frontier(stocks):
     for x in range(num_ports):
         # Weights
         weights = np.array(np.random.random(closing_price.columns.shape[0]))
-        weights = weights/np.sum(weights)
+        weights = weights / np.sum(weights)
 
         # Save weights
         all_weights[x, :] = weights
@@ -131,10 +145,10 @@ def efficient_frontier(stocks):
 
         # Expected volatility
         vol_arr[x] = np.sqrt(
-            np.dot(weights.T, np.dot(log_ret.cov()*252, weights)))
+            np.dot(weights.T, np.dot(log_ret.cov() * 252, weights)))
 
         # Sharpe Ratio
-        sharpe_arr[x] = ret_arr[x]/vol_arr[x]
+        sharpe_arr[x] = ret_arr[x] / vol_arr[x]
 
     max_sr_ret = ret_arr[sharpe_arr.argmax()]
     max_sr_vol = vol_arr[sharpe_arr.argmax()]
@@ -148,8 +162,8 @@ def efficient_frontier(stocks):
     plt.xlabel('Volatility')
     plt.ylabel('Return')
     plt.scatter(max_sr_vol, max_sr_ret, c='red', marker='*', s=300)  # red dot
-    plt.scatter(vol_arr.min(), min_vol_ret, c='green',
-                marker='*', s=300)  # green dot
+    plt.scatter(vol_arr.min(), min_vol_ret, c='green', marker='*',
+                s=300)  # green dot
 
     # plt.show()
 
@@ -176,13 +190,13 @@ def stock_volatility(list_of_stocks):
         end = end_time.strftime('%Y-%m-%d')
         start = start_time.strftime('%Y-%m-%d')
 
-        json_prices = YahooFinancials(
-            stock_symbol).get_historical_price_data(start, end, 'daily')
+        json_prices = YahooFinancials(stock_symbol).get_historical_price_data(
+            start, end, 'daily')
         # print(json_prices)
 
         # json -> dataframe
-        prices = pd.DataFrame(json_prices[stock_symbol]['prices'])[
-            ['formatted_date', 'close']]
+        prices = pd.DataFrame(
+            json_prices[stock_symbol]['prices'])[['formatted_date', 'close']]
         prices.sort_index(ascending=False, inplace=True)
 
         # Calculate daily log return
@@ -192,7 +206,7 @@ def stock_volatility(list_of_stocks):
         daily_std = np.std(prices.returns)
         prices['daily std'] = daily_std
         # annualized daily standard deviation
-        std = daily_std * 252 ** 0.5
+        std = daily_std * 252**0.5
         # print(prices)
 
         data1 = prices.returns.values
@@ -207,8 +221,7 @@ def stock_volatility(list_of_stocks):
     ax.set_xlabel('log return of stock price')
     ax.set_ylabel('frequency of log return')
     string_of_stocks = str1 = ', '.join(list_of_stocks)
-    ax.set_title('Historical Volatility for ' +
-                 string_of_stocks)
+    ax.set_title('Historical Volatility for ' + string_of_stocks)
     ax.legend(loc="upper right")
 
     # get x and y coordinate limits
@@ -223,8 +236,11 @@ def stock_volatility(list_of_stocks):
     # print historical volatility on plot
     x = x_corr[0] + (x_corr[1] - x_corr[0]) / 30
     y = y_corr[1] - (y_corr[1] - y_corr[0]) / 15
-    ax.text(x, y, 'Annualized Volatility: ' + str(np.round(std*100, 1))+'%',
-            fontsize=11, fontweight='bold')
+    ax.text(x,
+            y,
+            'Annualized Volatility: ' + str(np.round(std * 100, 1)) + '%',
+            fontsize=11,
+            fontweight='bold')
     x = x_corr[0] + (x_corr[1] - x_corr[0]) / 15
     y -= (y_corr[1] - y_corr[0]) / 20
 

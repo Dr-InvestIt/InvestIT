@@ -1,18 +1,47 @@
 {%extends 'base.html'%}
 
-{%block content%}
+{% block content %}
 <br>
 <p>Enter stock ID to see the efficiency frontier</p>
 <form method = 'POST'> {%csrf_token%}
+    <ul>
+        {%for item in stocks %}
+            <li>{{item.stock_id}}   {{item.stock_value}}</li>
+        {%endfor%}
+    </ul>
     {{form.as_p}}
+
     <input type = 'submit' value = 'Go'/>
-    <img src="{{ image }}">
     <p></p>
+    <input type = 'text' name = 'new' placeholder="AAPL">
+    <input type = 'text' name = 'stock value' placeholder="4000">
+    <button type = 'submit', name = 'newItem', value = 'newItem'>Insert</button>
+
+    <img src="{{ image }}">
+    
 </form>
+
+
+
 
 <script>
     var path = location.pathname;
     var activeItem = document.querySelector("a[href='" + path + "']");
     activeItem.className = 'a active';
 </script>
+
 {%endblock%}
+
+<!-- <br>
+<p>Enter stock ID to see the efficiency frontier</p>
+<form method = 'POST'> {%csrf_token%}
+    {{form.as_p}}
+    <input type = 'submit' value = 'Go'/>
+    <p></p>
+    <input type = 'text' name = 'new' placeholder="AAPL">
+    <input type = 'text' name = 'stock value' placeholder="4000">
+    <button type = 'submit', name = 'newItem', value = 'newItem'>Insert</button>
+
+    <img src="{{ image }}">
+    
+</form> -->

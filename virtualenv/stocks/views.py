@@ -1,6 +1,6 @@
 # from stocks.forms import StockForm
 from django.http.response import HttpResponseRedirect
-from django.shortcuts import render
+from django.shortcuts import redirect, render
 from django.http import HttpResponse, Http404, JsonResponse
 from .models import *
 from .forms import *
@@ -13,22 +13,6 @@ import base64
 def index_view(request):
 
     return render(request, 'stocks/index.html')
-
-
-def add_stock(response):
-    if response.method == 'POST':
-        form = EfficientForm(response.POST)
-
-        if form.is_valid():
-            name = form.cleaned_data['stock_id']
-            value = form.cleaned_data['stock_value']
-            t = Stock(stock_id=name, stock_value=value)
-            t.save()
-
-        return HttpResponseRedirect('frontier')
-    else:
-        form = EfficientForm()
-    return render(response, 'stocks/add_stock.html', {'form': form})
 
 
 def stock_create_volatility_view(request):
@@ -55,6 +39,33 @@ def stock_create_volatility_view(request):
     return render(request, 'stocks/stock_create.html', context)
 
 
+# Delete a stock
+def delete_stock(request, stock_id):
+    stock = Stock.objects.get(pk=stock_id)
+    stock.delete()
+    return redirect('frontier')
+
+
+# Calculate efficient frontier
+# def calculate_frontier(request):
+#     return red
+
+# def add_stock(response):
+#     if response.method == 'POST':
+#         form = EfficientForm(response.POST)
+
+#         if form.is_valid():
+#             name = form.cleaned_data['stock_id']
+#             value = form.cleaned_data['stock_value']
+#             t = Stock(stock_id=name, stock_value=value)
+#             t.save()
+
+#         return HttpResponseRedirect('frontier')
+#     else:
+#         form = EfficientForm()
+#     return render(response, 'stocks/add_stock.html', {'form': form})
+
+
 def stock_create_efficient_frontier_view(request):
     graph_form = GraphForm(request.POST or None)
     form = EfficientForm(request.POST or None)
@@ -63,17 +74,27 @@ def stock_create_efficient_frontier_view(request):
 
     uri = ''
     if form.is_valid():
-        stock_name = form.cleaned_data.get('stock_id')
+
+        name = form.cleaned_data['stock_id']
+        value = form.cleaned_data['stock_value']
+        t = Stock(stock_id=name, stock_value=value)
+        t.save()
+
+        stock_name = []
+        for item in stocks:
+            stock_name.append(item.stock_id)
         print(stock_name)
-        efficient_frontier(stock_name)
-        # plt.show()
-        fig = plt.gcf()
-        buf = io.BytesIO()
-        fig.savefig(buf, format='png')
-        buf.seek(0)
-        string = base64.b64encode(buf.read())
-        uri = 'data:image/png;base64,' + urllib.parse.quote(string)
-        # form.save()
+        if len(stock_name) >= 2:
+
+            efficient_frontier(stock_name)
+
+            fig = plt.gcf()
+            buf = io.BytesIO()
+            fig.savefig(buf, format='png')
+            buf.seek(0)
+            string = base64.b64encode(buf.read())
+            uri = 'data:image/png;base64,' + urllib.parse.quote(string)
+
     graph_form = GraphForm()
     form = EfficientForm()
 

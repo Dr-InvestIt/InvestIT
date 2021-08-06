@@ -6,16 +6,19 @@
 <form method = 'POST'> {%csrf_token%}
     <ul>
         {%for item in stocks %}
-            <li>{{item.stock_id}}   {{item.stock_value}}</li>
+            <li>{{item.stock_id}}   {{item.stock_value}}</li> 
+            <a href = "{%url 'delete-stock' item.id%}" 
+            class = "btn btn-outline-danger btn-sm">Delete</a>
         {%endfor%}
     </ul>
     {{form.as_p}}
 
     <input type = 'submit' value = 'Go'/>
+    <input type = 'submit' value = 'Calculate frontier'>
     <p></p>
-    <input type = 'text' name = 'new' placeholder="AAPL">
+    <!-- <input type = 'text' name = 'new' placeholder="AAPL">
     <input type = 'text' name = 'stock value' placeholder="4000">
-    <button type = 'submit', name = 'newItem', value = 'newItem'>Insert</button>
+    <button type = 'submit', name = 'newItem', value = 'newItem'>Insert</button> -->
 
     <img src="{{ image }}">
     
@@ -23,7 +26,7 @@
 
 
 
-
+<!-- setting nav bar active -->
 <script>
     var path = location.pathname;
     var activeItem = document.querySelector("a[href='" + path + "']");

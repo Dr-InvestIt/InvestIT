@@ -1,7 +1,7 @@
 {
     "_meta": {
         "hash": {
-            "sha256": "2b94cb9b72a95161172e59e5e5d55c0f7db910b08f7404958404791b55ccc9f0"
+            "sha256": "592b59c3f3e6aa53781b282860c95561b1352e0773fed8daf29d5c7c7d97f73c"
         },
         "pipfile-spec": 6,
         "requires": {
@@ -311,6 +311,14 @@
             "markers": "python_version >= '3.6'",
             "version": "==8.3.1"
         },
+        "plotly": {
+            "hashes": [
+                "sha256:71f6744acdc524c22236c226d7cf1072d1a58ebacaf749c640998298472c8c44",
+                "sha256:d60412ee21d85102f67e5c7134d59feb5e42a5cbbfb1e580ad67cbdf7589d80c"
+            ],
+            "index": "pypi",
+            "version": "==5.1.0"
+        },
         "pyparsing": {
             "hashes": [
                 "sha256:c203ec8783bf771a155b207279b9bccb8dea02d8f0c9e5f8ead507bc3246ecc1",
@@ -390,6 +398,14 @@
             ],
             "markers": "python_version >= '3.5'",
             "version": "==0.4.1"
+        },
+        "tenacity": {
+            "hashes": [
+                "sha256:43242a20e3e73291a28bcbcacfd6e000b02d3857a9a9fff56b297a27afdc932f",
+                "sha256:f78f4ea81b0fabc06728c11dc2a8c01277bfc5181b321a4770471902e3eb844a"
+            ],
+            "markers": "python_version >= '3.6'",
+            "version": "==8.0.1"
         },
         "urllib3": {
             "hashes": [

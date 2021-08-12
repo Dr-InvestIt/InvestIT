@@ -1,6 +1,7 @@
 {%extends 'base.html'%}
 
 {% block content %}
+<script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
 <br>
 <p>Enter stock ID to see the efficiency frontier</p>
 <form method = 'POST'> {%csrf_token%}
@@ -21,7 +22,9 @@
     <button type = 'submit', name = 'newItem', value = 'newItem'>Insert</button> -->
 
     <img src="{{ image }}">
-    
+    {% autoescape off %}
+    {{ plot_div }}
+    {% endautoescape %}
 </form>
 
 

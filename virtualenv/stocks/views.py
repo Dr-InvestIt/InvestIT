@@ -73,6 +73,7 @@ def stock_create_efficient_frontier_view(request):
     stocks = Stock.objects.all()
 
     uri = ''
+    plot_div = None
     if form.is_valid():
 
         name = form.cleaned_data['stock_id']
@@ -81,19 +82,21 @@ def stock_create_efficient_frontier_view(request):
         t.save()
 
         stock_name = []
+
         for item in stocks:
             stock_name.append(item.stock_id)
         print(stock_name)
         if len(stock_name) >= 2:
 
-            efficient_frontier(stock_name)
+            plot_div = interactive_efficient_frontier(stock_name)
+            # save image as html div and output it on html
 
-            fig = plt.gcf()
-            buf = io.BytesIO()
-            fig.savefig(buf, format='png')
-            buf.seek(0)
-            string = base64.b64encode(buf.read())
-            uri = 'data:image/png;base64,' + urllib.parse.quote(string)
+            # fig = plt.gcf()
+            # buf = io.BytesIO()
+            # fig.savefig(buf, format='png')
+            # buf.seek(0)
+            # string = base64.b64encode(buf.read())
+            # uri = 'data:image/png;base64,' + urllib.parse.quote(string)
 
     graph_form = GraphForm()
     form = EfficientForm()
@@ -102,7 +105,8 @@ def stock_create_efficient_frontier_view(request):
         'graph_form': graph_form,
         'form': form,
         'image': uri,
-        'stocks': stocks
+        'stocks': stocks,
+        'plot_div': plot_div
     }
 
     return render(request, 'stocks/frontier_create.html', context)
@@ -268,3 +272,103 @@ def stock_volatility(list_of_stocks):
     # save histogram plot of historical price volatility
     fig.tight_layout()
     # fig.savefig('historical volatility.png')
+
+
+def interactive_efficient_frontier(stocks):
+    import yfinance as yf
+    import numpy as np
+    from plotly.offline import plot
+    from datetime import date, timedelta
+    import plotly.graph_objects as go
+    # obtain today's date
+    today = date.today()
+    five_years_ago = today - timedelta(days=5 * 365)
+
+    today = today.strftime("%Y-%m-%d")
+    five_years_ago = five_years_ago.strftime("%Y-%m-%d")
+
+    # obtain Adj Close data for selected stocks
+    data = yf.download(stocks, start=five_years_ago, end=today)
+
+    closing_price = data['Adj Close']
+
+    # compute daily log return
+    log_ret = np.log(closing_price / closing_price.shift(1))
+
+    # create portfolios with random weights
+    np.random.seed(41)
+    num_ports = 2500
+    all_weights = np.zeros((num_ports, len(closing_price.columns)))
+    ret_arr = np.zeros(num_ports)
+    vol_arr = np.zeros(num_ports)
+    sharpe_arr = np.zeros(num_ports)
+
+    for x in range(num_ports):
+        # Weights
+        weights = np.array(np.random.random(closing_price.columns.shape[0]))
+        weights = weights / np.sum(weights)
+
+        # Save weights
+        all_weights[x, :] = weights
+
+        # Expected return
+        ret_arr[x] = np.sum((log_ret.mean() * weights * 252))
+
+        # Expected volatility
+        vol_arr[x] = np.sqrt(
+            np.dot(weights.T, np.dot(log_ret.cov() * 252, weights)))
+
+        # Sharpe Ratio
+        sharpe_arr[x] = ret_arr[x] / vol_arr[x]
+
+    max_sr_ret = ret_arr[sharpe_arr.argmax()]
+    max_sr_vol = vol_arr[sharpe_arr.argmax()]
+
+    min_vol = vol_arr[vol_arr.argmin()]
+    min_vol_ret = ret_arr[vol_arr.argmin()]
+
+    # plot scatter point with highest sharpe is highlighted
+    fig = go.Figure()
+
+    fig.update_layout(autosize=False,
+                      width=1200,
+                      height=750,
+                      margin=dict(pad=0),
+                      yaxis=dict(title_text="Return"),
+                      xaxis=dict(title_text="Volatility"))
+
+    fig.add_trace(
+        go.Scatter(name='Inefficient',
+                   mode='markers',
+                   x=vol_arr,
+                   y=ret_arr,
+                   marker=dict(color=sharpe_arr,
+                               colorscale='Viridis',
+                               size=10,
+                               showscale=False),
+                   showlegend=False))
+
+    fig.add_trace(
+        go.Scatter(
+            name='Min Vol',
+            mode='markers',
+            x=[min_vol],
+            y=[min_vol_ret],
+            marker=dict(color='orange', size=20, symbol='star'),
+            text=[f'Weights: {np.round(all_weights[vol_arr.argmin()],2)}'],
+            hoverinfo='text',
+            showlegend=True))
+
+    fig.add_trace(
+        go.Scatter(
+            name='Highest Sharpe',
+            mode='markers',
+            x=[max_sr_vol],
+            y=[max_sr_ret],
+            marker=dict(color='red', size=20, symbol='star'),
+            text=[f'Weights: {np.round(all_weights[sharpe_arr.argmax()],2)}'],
+            hoverinfo='text',
+            showlegend=True))
+    plt_div = plot(fig, output_type='div')
+    return plt_div
+    # fig.show()

@@ -4,7 +4,7 @@
 <br>
 <p>Enter stock ID to see the efficiency frontier</p>
 <form method = 'POST'> {%csrf_token%}
-    <ul>
+    <ul id="positions" display="none">
         {%for item in stocks %}
             <li>{{item.stock_id}}   {{item.stock_value}}</li> 
             <a href = "{%url 'delete-stock' item.id%}" 
@@ -24,7 +24,21 @@
     
 </form>
 
+<!-- Hide Button -->
+<button id="showButton" onclick="hideFunction()">Hide Positions</button>
 
+<script>
+    function hideFunction() {
+        var x = document.getElementById("positions");
+        if (x.style.display == "none") {
+            x.style.display = "block";
+            document.getElementById("showButton").innerHTML = "Hide Positions";
+        } else {
+            x.style.display = "none";
+            document.getElementById("showButton").innerHTML = "Show Positions"
+        }
+    }
+</script>
 
 <!-- setting nav bar active -->
 <script>

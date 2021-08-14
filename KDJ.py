@@ -88,6 +88,8 @@ cerebro.addobserver(bt.observers.DrawDown)  # visualize the drawdown evol
 
 cerebro.broker.setcash(10000.00)
 
+cerebro.addwriter(bt.WriterFile, csv=True, out='Test_KDJ.csv', rounding=1)
+
 print('Starting Portfolio Value: %.2f' % cerebro.broker.getvalue())
 start_portfolio_value = cerebro.broker.getvalue()
 

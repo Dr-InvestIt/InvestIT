@@ -4,28 +4,40 @@
 <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
 <br>
 <p>Enter stock ID to see the efficiency frontier</p>
-<form method = 'POST'> {%csrf_token%}
+<form action="{% url 'frontier' %}" method = 'POST'> {%csrf_token%}
     <ul id="positions" display="none">
         {%for item in stocks %}
-            <li>{{item.stock_id}}   {{item.stock_value}}</li> 
-            <a href = "{%url 'delete-stock' item.id%}" 
-            class = "btn btn-outline-danger btn-sm">Delete</a>
+            <li>{{item.stock_id}}   {{item.stock_value}} <a href = "{%url 'delete-stock' item.id%}" 
+                class = "btn btn-outline-danger btn-sm">Delete</a></li> 
+            
         {%endfor%}
     </ul>
     {{form.as_p}}
 
-    <input type = 'submit' value = 'Go'/>
-    <input type = 'submit' value = 'Calculate frontier'>
+    <input type = 'submit' value = 'Enter'/>
     <p></p>
     <!-- <input type = 'text' name = 'new' placeholder="AAPL">
     <input type = 'text' name = 'stock value' placeholder="4000">
     <button type = 'submit', name = 'newItem', value = 'newItem'>Insert</button> -->
 
+
+</form>
+
+<!-- Calculate frontier button -->
+<form action="{% url 'calcualteFrontier' %}" method="post">{% csrf_token %}
+    
+    <p>{{output_string}}</p>
+    
     <img src="{{ image }}">
     {% autoescape off %}
     {{ plot_div }}
     {% endautoescape %}
+
+    <input type = 'submit' value = 'Calculate Frontier'/>
+    <p></p>
 </form>
+<!-- <button id="calculateFrontier" onclick="calcualteFrontier()">Calculate Frontier</button> -->
+
 
 <!-- Hide Button -->
 <button id="showButton" onclick="hideFunction()">Hide Positions</button>

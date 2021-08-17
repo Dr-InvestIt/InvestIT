@@ -66,14 +66,39 @@ def delete_stock(request, stock_id):
 #     return render(response, 'stocks/add_stock.html', {'form': form})
 
 
+def plot_efficient_frontier(request):
+    form = EfficientForm(request.POST or None)
+    stocks = Stock.objects.all()
+
+    plot_div = ''
+    stock_name = []
+    output_string = ''
+
+    for item in stocks:
+        stock_name.append(item.stock_id)
+    print(stock_name)
+
+    if len(stock_name) >= 2:
+        plot_div = interactive_efficient_frontier(stock_name)
+    else:
+        output_string = 'Sorry, you need at least two stocks to perform efficient frontier calculation'
+    context = {
+        'plot_div': plot_div,
+        'form': form,
+        'stocks': stocks,
+        'output_string': output_string,
+    }
+    return render(request, 'stocks/frontier_create.html', context)
+
+
 def stock_create_efficient_frontier_view(request):
-    graph_form = GraphForm(request.POST or None)
+    # graph_form = GraphForm(request.POST or None)
     form = EfficientForm(request.POST or None)
 
     stocks = Stock.objects.all()
 
-    uri = ''
-    plot_div = None
+    # uri = ''
+    # plot_div = ''
     if form.is_valid():
 
         name = form.cleaned_data['stock_id']
@@ -81,32 +106,32 @@ def stock_create_efficient_frontier_view(request):
         t = Stock(stock_id=name, stock_value=value)
         t.save()
 
-        stock_name = []
+        # stock_name = []
 
-        for item in stocks:
-            stock_name.append(item.stock_id)
-        print(stock_name)
-        if len(stock_name) >= 2:
+        # for item in stocks:
+        #     stock_name.append(item.stock_id)
+        # print(stock_name)
+        # if len(stock_name) >= 2:
 
-            plot_div = interactive_efficient_frontier(stock_name)
-            # save image as html div and output it on html
+        #     plot_div = interactive_efficient_frontier(stock_name)
+        # save image as html div and output it on html
 
-            # fig = plt.gcf()
-            # buf = io.BytesIO()
-            # fig.savefig(buf, format='png')
-            # buf.seek(0)
-            # string = base64.b64encode(buf.read())
-            # uri = 'data:image/png;base64,' + urllib.parse.quote(string)
+        # fig = plt.gcf()
+        # buf = io.BytesIO()
+        # fig.savefig(buf, format='png')
+        # buf.seek(0)
+        # string = base64.b64encode(buf.read())
+        # uri = 'data:image/png;base64,' + urllib.parse.quote(string)
 
-    graph_form = GraphForm()
+    # graph_form = GraphForm()
     form = EfficientForm()
 
     context = {
-        'graph_form': graph_form,
+        # 'graph_form': graph_form,
         'form': form,
-        'image': uri,
+        # 'image': uri,
         'stocks': stocks,
-        'plot_div': plot_div
+        # 'plot_div': plot_div
     }
 
     return render(request, 'stocks/frontier_create.html', context)

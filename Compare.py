@@ -12,7 +12,7 @@ import pandas as pd
 BTVERSION = tuple(int(x) for x in bt.__version__.split('.'))
 
 stock = 'AAPL'
-fromdate = '2015-07-06'
+fromdate = '2015-01-01'
 todate = '2021-08-09'
 
 

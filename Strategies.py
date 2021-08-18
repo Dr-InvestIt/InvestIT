@@ -186,4 +186,4 @@ class MacdCross(bt.Strategy):
             self.order = None
 
 
-class GoldenCross(bt.Strategy):
+# class GoldenCross(bt.Strategy):

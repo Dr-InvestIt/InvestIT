@@ -2,20 +2,40 @@
 
 {% block content %}
 <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+<link rel="stylesheet" href="https://cdn.datatables.net/1.10.19/css/dataTables.bootstrap4.min.css">
+<script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+<script src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script>
+<script src="https://cdn.datatables.net/1.10.19/js/dataTables.bootstrap4.min.js"></script>
 <br>
 <p>Enter stock ID to see the efficiency frontier</p>
 <form action="{% url 'frontier' %}" method = 'POST'> {%csrf_token%}
-    <ul id="positions" display="none">
-        {%for item in stocks %}
-            <li>{{item.stock_id}}   {{item.stock_value}} <a href = "{%url 'delete-stock' item.id%}" 
-                class = "btn btn-outline-danger btn-sm">Delete</a></li> 
-            
-        {%endfor%}
-    </ul>
     {{form.as_p}}
 
     <input type = 'submit' value = 'Enter'/>
-    <p></p>
+
+    <br></br>
+
+    <div id="positions" class="container mb-3 mt-3" style="display: none">
+        <table class="table table-striped table-bordered mydatatable" style="width: 100%">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Value</th>
+                    <th>Delete</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for item in stocks %}
+                <tr>
+                    <th>{{item.stock_id}}</th>
+                    <th>{{item.stock_value}}</th>
+                    <th><a href = "{%url 'delete-stock' item.id%}" class = "btn btn-outline-danger btn-sm">Delete</a></th>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+
     <!-- <input type = 'text' name = 'new' placeholder="AAPL">
     <input type = 'text' name = 'stock value' placeholder="4000">
     <button type = 'submit', name = 'newItem', value = 'newItem'>Insert</button> -->
@@ -40,17 +60,19 @@
 
 
 <!-- Hide Button -->
-<button id="showButton" onclick="hideFunction()">Hide Positions</button>
+<button id="showButton" class="btn btn-secondary" onclick="hideFunction()">Show Positions</button>
 
 <script>
     function hideFunction() {
         var x = document.getElementById("positions");
-        if (x.style.display == "none") {
-            x.style.display = "block";
-            document.getElementById("showButton").innerHTML = "Hide Positions";
-        } else {
+        if (x.style.display == "block") {
             x.style.display = "none";
-            document.getElementById("showButton").innerHTML = "Show Positions"
+            document.getElementById("showButton").innerHTML = "Show Positions";
+            document.getElementById("showButton").className = "btn btn-secondary"
+        } else {
+            x.style.display = "block";
+            document.getElementById("showButton").innerHTML = "Hide Positions"
+            document.getElementById("showButton").className = "btn btn-outline-secondary"
         }
     }
 </script>

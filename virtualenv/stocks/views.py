@@ -423,3 +423,10 @@ def interactive_efficient_frontier(stocks, stock_value):
     plt_div = plot(fig, output_type='div')
     return plt_div
     # fig.show()
+
+def item_detail_view(request):
+    obj = Item.objects.get()
+    context = {
+
+    }
+    return render(request, "stocks/frontier_create.html", context)

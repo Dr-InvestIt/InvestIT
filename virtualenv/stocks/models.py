@@ -101,12 +101,3 @@ class Stock(models.Model):
         # save histogram plot of historical price volatility
         fig.tight_layout()
         # fig.savefig('historical volatility.png')
-
-
-class item(models.Model):
-    stock_item = models.ForeignKey(Stock, on_delete=models.CASCADE)
-    text_name = models.CharField(max_length=1000)
-    text_value = models.CharField(max_length=100)
-
-    def __str__(self):
-        return self.text_name

@@ -72,14 +72,16 @@ def plot_efficient_frontier(request):
 
     plot_div = ''
     stock_name = []
+    stock_value = []
     output_string = ''
 
     for item in stocks:
         stock_name.append(item.stock_id)
+        stock_value.append(item.stock_value)
     print(stock_name)
 
     if len(stock_name) >= 2:
-        plot_div = interactive_efficient_frontier(stock_name)
+        plot_div = interactive_efficient_frontier(stock_name, stock_value)
     else:
         output_string = 'Sorry, you need at least two stocks to perform efficient frontier calculation'
     context = {
@@ -299,7 +301,7 @@ def stock_volatility(list_of_stocks):
     # fig.savefig('historical volatility.png')
 
 
-def interactive_efficient_frontier(stocks):
+def interactive_efficient_frontier(stocks, stock_value):
     import yfinance as yf
     import numpy as np
     from plotly.offline import plot
@@ -315,6 +317,14 @@ def interactive_efficient_frontier(stocks):
     # obtain Adj Close data for selected stocks
     data = yf.download(stocks, start=five_years_ago, end=today)
 
+    #convert str to int for stock values
+    stock_value = list(map(float, stock_value))
+    port_weight = []
+    port_total = sum(stock_value)
+    for i in stock_value:
+        port_weight.append(i / port_total)
+    # print(stock_weight)
+    port_weight = np.array(port_weight)
     closing_price = data['Adj Close']
 
     # compute daily log return
@@ -345,6 +355,12 @@ def interactive_efficient_frontier(stocks):
 
         # Sharpe Ratio
         sharpe_arr[x] = ret_arr[x] / vol_arr[x]
+
+    #calculate user's portfolio
+    port_ret = np.sum(log_ret.mean() * port_weight * 252)
+    port_vol = np.sqrt(
+        np.dot(port_weight.T, np.dot(log_ret.cov() * 252, port_weight)))
+    print(port_ret, port_vol)
 
     max_sr_ret = ret_arr[sharpe_arr.argmax()]
     max_sr_vol = vol_arr[sharpe_arr.argmax()]
@@ -383,6 +399,16 @@ def interactive_efficient_frontier(stocks):
             text=[f'Weights: {np.round(all_weights[vol_arr.argmin()],2)}'],
             hoverinfo='text',
             showlegend=True))
+
+    fig.add_trace(
+        go.Scatter(name='Your Portfolio',
+                   mode='markers',
+                   x=[port_vol],
+                   y=[port_ret],
+                   marker=dict(color='blue', size=20, symbol='star'),
+                   text=[f'Weights: {np.round(port_weight,2)}'],
+                   hoverinfo='text',
+                   showlegend=True))
 
     fig.add_trace(
         go.Scatter(

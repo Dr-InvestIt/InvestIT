@@ -60,7 +60,7 @@
 
 
 <!-- Hide Button -->
-<button id="showButton" onclick="hideFunction()">Show Positions</button>
+<button id="showButton" class="btn btn-secondary" onclick="hideFunction()">Show Positions</button>
 
 <script>
     function hideFunction() {
@@ -68,9 +68,11 @@
         if (x.style.display == "block") {
             x.style.display = "none";
             document.getElementById("showButton").innerHTML = "Show Positions";
+            document.getElementById("showButton").className = "btn btn-secondary"
         } else {
             x.style.display = "block";
             document.getElementById("showButton").innerHTML = "Hide Positions"
+            document.getElementById("showButton").className = "btn btn-outline-secondary"
         }
     }
 </script>

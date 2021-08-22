@@ -11,12 +11,8 @@ import pandas as pd
 
 BTVERSION = tuple(int(x) for x in bt.__version__.split('.'))
 
-stock = 'AAPL'
-fromdate = '2015-01-01'
-todate = '2021-08-09'
 
-
-def runstrategy(strategy):
+def runstrategy(strategy, stock):
     cerebro = bt.Cerebro()
 
     data = bt.feeds.PandasData(dataname=yf.download(
@@ -28,12 +24,15 @@ def runstrategy(strategy):
 
     cerebro.broker.setcash(10000.00)
 
-    cerebro.broker.setcommission(commission=5.0, margin=2000.0, mult=1.0)
+    cerebro.addsizer(bt.sizers.AllInSizer, percents=95)
+
+    # cerebro.broker.setcommission(commission=5.0, margin=2000.0, mult=1.0)
 
     strat_name = str(strategy.__name__)
     excel = strat_name + ".csv"
     cerebro.addwriter(bt.WriterFile, csv=True, out=excel, rounding=2)
 
+    print(strat_name)
     print('Starting Portfolio Value: %.2f' % cerebro.broker.getvalue())
     start_portfolio_value = cerebro.broker.getvalue()
 
@@ -41,14 +40,26 @@ def runstrategy(strategy):
 
     print('Final Portfolio Value: %.2f' % cerebro.broker.getvalue())
     end_portfolio_value = cerebro.broker.getvalue()
-    print("PnL:", end_portfolio_value - start_portfolio_value)
+    pnl = end_portfolio_value - start_portfolio_value
+    print("PnL:", pnl)
+
+    # cerebro.plot()
+
+    strat_result = [strat_name, pnl]
+
+    return strat_result
 
 
-def testall():
-    strategies_list = [KDJ_MACDStrategy, KDJStrategy, MacdCross]
+def testallstratonstock(stock):
+    strategies_list = [KDJ_MACDStrategy, KDJStrategy, MacdCross, GoldenCross]
+
+    best_result = ["Strats were all worse", 0]
 
     for strategy in strategies_list:
-        runstrategy(strategy)
+        result = runstrategy(strategy, stock)
+        if result[1] > best_result[1]:
+            best_result[0] = result[0]
+            best_result[1] = result[1]
 
     path = './'
     all_files = glob.glob(os.path.join(path, "*.csv"))
@@ -62,5 +73,22 @@ def testall():
 
     writer.save()
 
+    print()
+    print("Best strategy for", stock, "is",
+          best_result[0], "with a PnL of", best_result[1])
+    print()
+    input("Press Enter to continue...")
 
-testall()
+
+fromdate = '2015-01-01'
+todate = '2021-01-01'
+
+
+def testmultiplestock():
+    stocks = ['SPY', 'AAPL', "GOOD"]
+
+    for stock in stocks:
+        testallstratonstock(stock)
+
+
+testmultiplestock()

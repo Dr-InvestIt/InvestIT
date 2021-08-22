@@ -8,6 +8,9 @@ import yfinance as yf
 BTVERSION = tuple(int(x) for x in bt.__version__.split('.'))
 
 
+# class BuyAndHold(bt.Strategy):
+
+
 class KDJ_MACDStrategy(bt.Strategy):
 
     params = (
@@ -186,4 +189,42 @@ class MacdCross(bt.Strategy):
             self.order = None
 
 
-# class GoldenCross(bt.Strategy):
+class GoldenCross(bt.Strategy):
+    params = (
+        ('fast', 50),
+        ('slow', 200),
+    )
+
+    def __init__(self):
+        self.fast_moving_average = bt.indicators.SMA(
+            self.data.close, period=self.params.fast, plotname='50 day moving average'
+        )
+
+        self.slow_moving_average = bt.indicators.SMA(
+            self.data.close, period=self.params.slow, plotname="200 day moving average"
+        )
+
+        self.crossover = bt.indicators.CrossOver(
+            self.fast_moving_average, self.slow_moving_average)
+
+    def start(self):
+        self.order = None
+
+    def notify_order(self, order):
+        if order.status in [order.Submitted, order.Accepted]:
+            return
+
+        if order.status in [order.Completed, order.Canceled, order.Margin, order.Rejected]:
+            self.order = None
+
+    def next(self):
+        if self.order:
+            return
+
+        if not self.position:
+            if self.crossover > 0:
+                self.order = self.buy()
+
+        else:
+            if self.crossover < 0:
+                self.order = self.sell()

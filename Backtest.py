@@ -4,17 +4,44 @@ import yfinance as yf
 
 
 class SmaCross(bt.SignalStrategy):
-    def __init__(self):
-        sma = bt.ind.SMA(period=50)
-        price = self.data
-        crossover = bt.ind.CrossOver(price, sma)
-        self.signal_add(bt.SIGNAL_LONG, crossover)
+    params = (
+        ('fast', 50),
+        ('slow', 200),
+    )
 
-# class SmaCross(bt.SignalStrategy):
-#     def __init__(self):
-#         sma1, sma2 = bt.ind.SMA(period=10), bt.ind.SMA(period=30)
-#         crossover = bt.ind.CrossOver(sma1, sma2)
-#         self.signal_add(bt.SIGNAL_LONG, crossover)
+    def __init__(self):
+        self.fast_moving_average = bt.indicators.SMA(
+            self.data.close, period=self.params.fast, plotname='50 day moving average'
+        )
+
+        self.slow_moving_average = bt.indicators.SMA(
+            self.data.close, period=self.params.slow, plotname="200 day moving average"
+        )
+
+        self.crossover = bt.indicators.CrossOver(
+            self.fast_moving_average, self.slow_moving_average)
+
+    def start(self):
+        self.order = None
+
+    def notify_order(self, order):
+        if order.status in [order.Submitted, order.Accepted]:
+            return
+
+        if order.status in [order.Completed, order.Canceled, order.Margin, order.Rejected]:
+            self.order = None
+
+    def next(self):
+        if self.order:
+            return
+
+        if not self.position:
+            if self.crossover == 1:
+                self.order = self.buy()
+
+        else:
+            if self.crossover == -1:
+                self.order = self.sell()
 
 
 cerebro = bt.Cerebro()

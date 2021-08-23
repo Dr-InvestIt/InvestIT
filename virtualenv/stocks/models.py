@@ -5,12 +5,19 @@ from django.db import models
 
 class Stock(models.Model):
     stock_id = models.CharField(max_length=1000)
+    stock_value = models.CharField(max_length=100)
+
+    # checkbox
+    # enter_your_portfolio = models.BooleanField()
 
     def get_stock_id():
         return stock_id
 
-    def enter_stock(stock_name):
-        stock_id = stock_name
+    def get_stock_value():
+        return stock_value
+
+    # def get_enter_your_portfolio():
+    #     return enter_your_portfolio
 
     def stock_volatility(stock_name):
         from yahoofinancials import YahooFinancials
@@ -41,8 +48,9 @@ class Stock(models.Model):
             # print(json_prices)
 
             # json -> dataframe
-            prices = pd.DataFrame(json_prices[stock_symbol]['prices'])[
-                ['formatted_date', 'close']]
+            prices = pd.DataFrame(json_prices[stock_symbol]['prices'])[[
+                'formatted_date', 'close'
+            ]]
             prices.sort_index(ascending=False, inplace=True)
 
             # Calculate daily log return
@@ -52,7 +60,7 @@ class Stock(models.Model):
             daily_std = np.std(prices.returns)
             prices['daily std'] = daily_std
             # annualized daily standard deviation
-            std = daily_std * 252 ** 0.5
+            std = daily_std * 252**0.5
             print(prices)
 
             data1 = prices.returns.values
@@ -67,8 +75,7 @@ class Stock(models.Model):
         ax.set_xlabel('log return of stock price')
         ax.set_ylabel('frequency of log return')
         string_of_stocks = str1 = ', '.join(list_of_stocks)
-        ax.set_title('Historical Volatility for ' +
-                     string_of_stocks)
+        ax.set_title('Historical Volatility for ' + string_of_stocks)
         ax.legend(loc="upper right")
 
         # get x and y coordinate limits
@@ -83,8 +90,11 @@ class Stock(models.Model):
         # print historical volatility on plot
         x = x_corr[0] + (x_corr[1] - x_corr[0]) / 30
         y = y_corr[1] - (y_corr[1] - y_corr[0]) / 15
-        ax.text(x, y, 'Annualized Volatility: ' + str(np.round(std*100, 1))+'%',
-                fontsize=11, fontweight='bold')
+        ax.text(x,
+                y,
+                'Annualized Volatility: ' + str(np.round(std * 100, 1)) + '%',
+                fontsize=11,
+                fontweight='bold')
         x = x_corr[0] + (x_corr[1] - x_corr[0]) / 15
         y -= (y_corr[1] - y_corr[0]) / 20
 

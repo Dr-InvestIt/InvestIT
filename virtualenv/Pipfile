@@ -15,6 +15,7 @@ pandas-datareader = "*"
 scipy = "*"
 djangorestframework = "*"
 plotly = "*"
+gunicorn = "*"
 
 [dev-packages]
 

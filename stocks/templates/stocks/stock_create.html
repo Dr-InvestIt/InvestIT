@@ -1,0 +1,20 @@
+{%extends 'base.html'%}
+
+{%block content%}
+<br>
+<div class = 'form-group'></div>
+    <p>Enter stock ID to see the volatility</p>
+    <form method = 'POST'> {%csrf_token%}
+        {{form.as_p}}
+        <input type = 'submit' value = 'Go'/>
+        <img src="{{ image }}">
+        <p></p>
+    </form>
+</div>
+
+<script>
+    var path = location.pathname;
+    var activeItem = document.querySelector("a[href='" + path + "']");
+    activeItem.className = 'a active';
+</script>
+{%endblock%}

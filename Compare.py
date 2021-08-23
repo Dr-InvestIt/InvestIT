@@ -79,16 +79,37 @@ def testallstratonstock(stock):
     print()
     input("Press Enter to continue...")
 
+    return best_result
+
 
 fromdate = '2015-01-01'
-todate = '2021-01-01'
+todate = '2021-08-21'
 
 
 def testmultiplestock():
-    stocks = ['SPY', 'AAPL', "GOOD"]
+    stocks = ['AAPL', "GOOGL", "MSFT", "AMZN", "FB",
+              "GOOG", "TSLA", "NVDA", "JPM"]
+
+    best_strats = []
 
     for stock in stocks:
-        testallstratonstock(stock)
+        best_result = testallstratonstock(stock)
+        best_strats.append(best_result[0])
+
+    dict = {}
+    count, itm = 0, ""
+    for item in reversed(best_strats):
+        dict[item] = dict.get(item, 0) + 1
+        if dict[item] >= count:
+            count, itm = dict[item], item
+    print()
+    print(itm, "is best for", count, "times. ")
+    print()
+    print('Strat Times')
+    for itm, count in dict.items():
+        print(
+            '{} {}'.format(itm, count)
+        )
 
 
 testmultiplestock()

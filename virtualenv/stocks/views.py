@@ -9,6 +9,8 @@ import io
 import urllib
 import base64
 
+efficiency_frontier_stocks = {}
+
 
 def index_view(request):
 
@@ -41,8 +43,7 @@ def stock_create_volatility_view(request):
 
 # Delete a stock
 def delete_stock(request, stock_id):
-    stock = Stock.objects.get(pk=stock_id)
-    stock.delete()
+    efficiency_frontier_stocks.pop(stock_id, None)
     return redirect('frontier')
 
 
@@ -68,16 +69,15 @@ def delete_stock(request, stock_id):
 
 def plot_efficient_frontier(request):
     form = EfficientForm(request.POST or None)
-    stocks = Stock.objects.all()
 
     plot_div = ''
     stock_name = []
     stock_value = []
     output_string = ''
 
-    for item in stocks:
-        stock_name.append(item.stock_id)
-        stock_value.append(item.stock_value)
+    for item in efficiency_frontier_stocks:
+        stock_name.append(item)
+        stock_value.append(efficiency_frontier_stocks[item])
     print(stock_name)
 
     if len(stock_name) >= 2:
@@ -87,7 +87,7 @@ def plot_efficient_frontier(request):
     context = {
         'plot_div': plot_div,
         'form': form,
-        'stocks': stocks,
+        'stocks': efficiency_frontier_stocks,
         'output_string': output_string,
     }
     return render(request, 'stocks/frontier_create.html', context)
@@ -97,7 +97,7 @@ def stock_create_efficient_frontier_view(request):
     # graph_form = GraphForm(request.POST or None)
     form = EfficientForm(request.POST or None)
 
-    stocks = Stock.objects.all()
+    # stocks = Stock.objects.all()
 
     # uri = ''
     # plot_div = ''
@@ -105,8 +105,7 @@ def stock_create_efficient_frontier_view(request):
 
         name = form.cleaned_data['stock_id']
         value = form.cleaned_data['stock_value']
-        t = Stock(stock_id=name, stock_value=value)
-        t.save()
+        efficiency_frontier_stocks[name] = value
 
         # stock_name = []
 
@@ -132,7 +131,29 @@ def stock_create_efficient_frontier_view(request):
         # 'graph_form': graph_form,
         'form': form,
         # 'image': uri,
-        'stocks': stocks,
+        'stocks': efficiency_frontier_stocks,
+        # 'plot_div': plot_div
+    }
+
+    return render(request, 'stocks/frontier_create.html', context)
+
+
+def save_stock_entry_view(request):
+
+    form = EfficientForm(request.POST or None)
+
+    print(efficiency_frontier_stocks)
+    for item in efficiency_frontier_stocks:
+        name = item
+        value = efficiency_frontier_stocks[item]
+        t = Stock(stock_id=name, stock_value=value)
+        t.save()
+
+    context = {
+        # 'graph_form': graph_form,
+        'form': form,
+        # 'image': uri,
+        'stocks': efficiency_frontier_stocks,
         # 'plot_div': plot_div
     }
 
@@ -317,7 +338,7 @@ def interactive_efficient_frontier(stocks, stock_value):
     # obtain Adj Close data for selected stocks
     data = yf.download(stocks, start=five_years_ago, end=today)
 
-    #convert str to int for stock values
+    # convert str to int for stock values
     stock_value = list(map(float, stock_value))
     port_weight = []
     port_total = sum(stock_value)
@@ -356,7 +377,7 @@ def interactive_efficient_frontier(stocks, stock_value):
         # Sharpe Ratio
         sharpe_arr[x] = ret_arr[x] / vol_arr[x]
 
-    #calculate user's portfolio
+    # calculate user's portfolio
     port_ret = np.sum(log_ret.mean() * port_weight * 252)
     port_vol = np.sqrt(
         np.dot(port_weight.T, np.dot(log_ret.cov() * 252, port_weight)))
@@ -423,6 +444,7 @@ def interactive_efficient_frontier(stocks, stock_value):
     plt_div = plot(fig, output_type='div')
     return plt_div
     # fig.show()
+
 
 def item_detail_view(request):
     obj = Item.objects.get()

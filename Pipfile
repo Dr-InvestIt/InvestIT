@@ -17,6 +17,7 @@ djangorestframework = "*"
 plotly = "*"
 gunicorn = "*"
 django-heroku = "*"
+psycopg2 = "*"
 
 [dev-packages]
 

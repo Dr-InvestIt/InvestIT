@@ -10,6 +10,11 @@
 <p>Enter stock ID to see the efficiency frontier</p>
 <form action="{% url 'frontier' %}" method = 'POST'> {%csrf_token%}
     {{form.as_p}}
+    <datalist id="stocklist">
+        {% for results in showstock %}
+        <option value="{{ results.stock_id }}">
+        {% endfor %}
+    </datalist>
 
     <input type = 'submit' value = 'Enter'/>
 

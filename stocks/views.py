@@ -92,11 +92,14 @@ def plot_efficient_frontier(request):
         plot_div = interactive_efficient_frontier(stock_name, stock_value)
     else:
         output_string = 'Sorry, you need at least two stocks to perform efficient frontier calculation'
+
+    results = SP500.objects.all
     context = {
         'plot_div': plot_div,
         'form': form,
         'stocks': efficiency_frontier_stocks,
         'output_string': output_string,
+        'showstock': results
     }
     return render(request, 'stocks/frontier_create.html', context)
 
@@ -135,12 +138,15 @@ def stock_create_efficient_frontier_view(request):
     # graph_form = GraphForm()
     form = EfficientForm()
 
+    results = SP500.objects.all
+
     context = {
         # 'graph_form': graph_form,
         'form': form,
         # 'image': uri,
         'stocks': efficiency_frontier_stocks,
         # 'plot_div': plot_div
+        'showstock': results
     }
 
     return render(request, 'stocks/frontier_create.html', context)
@@ -157,12 +163,15 @@ def save_stock_entry_view(request):
         t = Stock(stock_id=name, stock_value=value)
         t.save()
 
+    results = SP500.objects.all
+
     context = {
         # 'graph_form': graph_form,
         'form': form,
         # 'image': uri,
         'stocks': efficiency_frontier_stocks,
         # 'plot_div': plot_div
+        'showstock': result
     }
 
     return render(request, 'stocks/frontier_create.html', context)

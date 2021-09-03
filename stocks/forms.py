@@ -12,7 +12,8 @@ class StockForm(forms.ModelForm):
             forms.TextInput(
                 attrs={
                     'class': 'form-control form-control-lg',
-                    'placeholder': 'eg.AAPL,TSM,FB'
+                    'placeholder': 'eg.AAPL,TSM,FB',
+                    'list': 'stocklist'
                 })
         }
 
@@ -26,7 +27,8 @@ class EfficientForm(forms.ModelForm):
             forms.TextInput(
                 attrs={
                     'class': 'form-control form-control-lg',
-                    'placeholder': 'eg.AAPL,TSM,FB'
+                    'placeholder': 'eg.AAPL,TSM,FB',
+                    'list': "stocklist",
                 }),
             'stock_value':
             forms.TextInput(

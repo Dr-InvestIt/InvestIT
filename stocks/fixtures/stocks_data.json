@@ -1,33 +1,3537 @@
 [
     {
         "model": "stocks.SP500",
+        "pk": 0,
+        "fields": {
+            "stock_id": "MMM"
+        }
+    },
+    {
+        "model": "stocks.SP500",
         "pk": 1,
         "fields": {
-            "stock_id": "A"
+            "stock_id": "AOS"
         }
-    }, 
-
+    },
     {
         "model": "stocks.SP500",
         "pk": 2,
         "fields": {
-            "stock_id": "AAL"
+            "stock_id": "ABT"
         }
-    }, 
-
+    },
     {
         "model": "stocks.SP500",
         "pk": 3,
         "fields": {
-            "stock_id": "AAP"
+            "stock_id": "ABBV"
         }
-    }, 
-
+    },
     {
         "model": "stocks.SP500",
         "pk": 4,
         "fields": {
+            "stock_id": "ABMD"
+        }
+    },
+    {
+        "model": "stocks.SP500",
+        "pk": 5,
+        "fields": {
+            "stock_id": "ACN"
+        }
+    },
+    {
+        "model": "stocks.SP500",
+        "pk": 6,
+        "fields": {
+            "stock_id": "ATVI"
+        }
+    },
+    {
+        "model": "stocks.SP500",
+        "pk": 7,
+        "fields": {
+            "stock_id": "ADM"
+        }
+    },
+    {
+        "model": "stocks.SP500",
+        "pk": 8,
+        "fields": {
+            "stock_id": "ADBE"
+        }
+    },
+    {
+        "model": "stocks.SP500",
+        "pk": 9,
+        "fields": {
+            "stock_id": "AAP"
+        }
+    },
+    {
+        "model": "stocks.SP500",
+        "pk": 10,
+        "fields": {
+            "stock_id": "AMD"
+        }
+    },
+    {
+        "model": "stocks.SP500",
+        "pk": 11,
+        "fields": {
+            "stock_id": "AES"
+        }
+    },
+    {
+        "model": "stocks.SP500",
+        "pk": 12,
+        "fields": {
+            "stock_id": "AFL"
+        }
+    },
+    {
+        "model": "stocks.SP500",
+        "pk": 13,
+        "fields": {
+            "stock_id": "A"
+        }
+    },
+    {
+        "model": "stocks.SP500",
+        "pk": 14,
+        "fields": {
+            "stock_id": "APD"
+        }
+    },
+    {
+        "model": "stocks.SP500",
+        "pk": 15,
+        "fields": {
+            "stock_id": "AKAM"
+        }
+    },
+    {
+        "model": "stocks.SP500",
+        "pk": 16,
+        "fields": {
+            "stock_id": "ALK"
+        }
+    },
+    {
+        "model": "stocks.SP500",
+        "pk": 17,
+        "fields": {
+            "stock_id": "ALB"
+        }
+    },
+    {
+        "model": "stocks.SP500",
+        "pk": 18,
+        "fields": {
+            "stock_id": "ARE"
+        }
+    },
+    {
+        "model": "stocks.SP500",
+        "pk": 19,
+        "fields": {
+            "stock_id": "ALGN"
+        }
+    },
+    {
+        "model": "stocks.SP500",
+        "pk": 20,
+        "fields": {
+            "stock_id": "ALLE"
+        }
+    },
+    {
+        "model": "stocks.SP500",
+        "pk": 21,
+        "fields": {
+            "stock_id": "LNT"
+        }
+    },
+    {
+        "model": "stocks.SP500",
+        "pk": 22,
+        "fields": {
+            "stock_id": "ALL"
+        }
+    },
+    {
+        "model": "stocks.SP500",
+        "pk": 23,
+        "fields": {
+            "stock_id": "GOOGL"
+        }
+    },
+    {
+        "model": "stocks.SP500",
+        "pk": 24,
+        "fields": {
+            "stock_id": "GOOG"
+        }
+    },
+    {
+        "model": "stocks.SP500",
+        "pk": 25,
+        "fields": {
+            "stock_id": "MO"
+        }
+    },
+    {
+        "model": "stocks.SP500",
+        "pk": 26,
+        "fields": {
+            "stock_id": "AMZN"
+        }
+    },
+    {
+        "model": "stocks.SP500",
+        "pk": 27,
+        "fields": {
+            "stock_id": "AMCR"
+        }
+    },
+    {
+        "model": "stocks.SP500",
+        "pk": 28,
+        "fields": {
+            "stock_id": "AEE"
+        }
+    },
+    {
+        "model": "stocks.SP500",
+        "pk": 29,
+        "fields": {
+            "stock_id": "AAL"
+        }
+    },
+    {
+        "model": "stocks.SP500",
+        "pk": 30,
+        "fields": {
+            "stock_id": "AEP"
+        }
+    },
+    {
+        "model": "stocks.SP500",
+        "pk": 31,
+        "fields": {
+            "stock_id": "AXP"
+        }
+    },
+    {
+        "model": "stocks.SP500",
+        "pk": 32,
+        "fields": {
+            "stock_id": "AIG"
+        }
+    },
+    {
+        "model": "stocks.SP500",
+        "pk": 33,
+        "fields": {
+            "stock_id": "AMT"
+        }
+    },
+    {
+        "model": "stocks.SP500",
+        "pk": 34,
+        "fields": {
+            "stock_id": "AWK"
+        }
+    },
+    {
+        "model": "stocks.SP500",
+        "pk": 35,
+        "fields": {
+            "stock_id": "AMP"
+        }
+    },
+    {
+        "model": "stocks.SP500",
+        "pk": 36,
+        "fields": {
+            "stock_id": "ABC"
+        }
+    },
+    {
+        "model": "stocks.SP500",
+        "pk": 37,
+        "fields": {
+            "stock_id": "AME"
+        }
+    },
+    {
+        "model": "stocks.SP500",
+        "pk": 38,
+        "fields": {
+            "stock_id": "AMGN"
+        }
+    },
+    {
+        "model": "stocks.SP500",
+        "pk": 39,
+        "fields": {
+            "stock_id": "APH"
+        }
+    },
+    {
+        "model": "stocks.SP500",
+        "pk": 40,
+        "fields": {
+            "stock_id": "ADI"
+        }
+    },
+    {
+        "model": "stocks.SP500",
+        "pk": 41,
+        "fields": {
+            "stock_id": "ANSS"
+        }
+    },
+    {
+        "model": "stocks.SP500",
+        "pk": 42,
+        "fields": {
+            "stock_id": "ANTM"
+        }
+    },
+    {
+        "model": "stocks.SP500",
+        "pk": 43,
+        "fields": {
+            "stock_id": "AON"
+        }
+    },
+    {
+        "model": "stocks.SP500",
+        "pk": 44,
+        "fields": {
+            "stock_id": "APA"
+        }
+    },
+    {
+        "model": "stocks.SP500",
+        "pk": 45,
+        "fields": {
             "stock_id": "AAPL"
+        }
+    },
+    {
+        "model": "stocks.SP500",
+        "pk": 46,
+        "fields": {
+            "stock_id": "AMAT"
+        }
+    },
+    {
+        "model": "stocks.SP500",
+        "pk": 47,
+        "fields": {
+            "stock_id": "APTV"
+        }
+    },
+    {
+        "model": "stocks.SP500",
+        "pk": 48,
+        "fields": {
+            "stock_id": "ANET"
+        }
+    },
+    {
+        "model": "stocks.SP500",
+        "pk": 49,
+        "fields": {
+            "stock_id": "AJG"
+        }
+    },
+    {
+        "model": "stocks.SP500",
+        "pk": 50,
+        "fields": {
+            "stock_id": "AIZ"
+        }
+    },
+    {
+        "model": "stocks.SP500",
+        "pk": 51,
+        "fields": {
+            "stock_id": "T"
+        }
+    },
+    {
+        "model": "stocks.SP500",
+        "pk": 52,
+        "fields": {
+            "stock_id": "ATO"
+        }
+    },
+    {
+        "model": "stocks.SP500",
+        "pk": 53,
+        "fields": {
+            "stock_id": "ADSK"
+        }
+    },
+    {
+        "model": "stocks.SP500",
+        "pk": 54,
+        "fields": {
+            "stock_id": "ADP"
+        }
+    },
+    {
+        "model": "stocks.SP500",
+        "pk": 55,
+        "fields": {
+            "stock_id": "AZO"
+        }
+    },
+    {
+        "model": "stocks.SP500",
+        "pk": 56,
+        "fields": {
+            "stock_id": "AVB"
+        }
+    },
+    {
+        "model": "stocks.SP500",
+        "pk": 57,
+        "fields": {
+            "stock_id": "AVY"
+        }
+    },
+    {
+        "model": "stocks.SP500",
+        "pk": 58,
+        "fields": {
+            "stock_id": "BKR"
+        }
+    },
+    {
+        "model": "stocks.SP500",
+        "pk": 59,
+        "fields": {
+            "stock_id": "BLL"
+        }
+    },
+    {
+        "model": "stocks.SP500",
+        "pk": 60,
+        "fields": {
+            "stock_id": "BAC"
+        }
+    },
+    {
+        "model": "stocks.SP500",
+        "pk": 61,
+        "fields": {
+            "stock_id": "BBWI"
+        }
+    },
+    {
+        "model": "stocks.SP500",
+        "pk": 62,
+        "fields": {
+            "stock_id": "BAX"
+        }
+    },
+    {
+        "model": "stocks.SP500",
+        "pk": 63,
+        "fields": {
+            "stock_id": "BDX"
+        }
+    },
+    {
+        "model": "stocks.SP500",
+        "pk": 64,
+        "fields": {
+            "stock_id": "BRK.B"
+        }
+    },
+    {
+        "model": "stocks.SP500",
+        "pk": 65,
+        "fields": {
+            "stock_id": "BBY"
+        }
+    },
+    {
+        "model": "stocks.SP500",
+        "pk": 66,
+        "fields": {
+            "stock_id": "BIO"
+        }
+    },
+    {
+        "model": "stocks.SP500",
+        "pk": 67,
+        "fields": {
+            "stock_id": "TECH"
+        }
+    },
+    {
+        "model": "stocks.SP500",
+        "pk": 68,
+        "fields": {
+            "stock_id": "BIIB"
+        }
+    },
+    {
+        "model": "stocks.SP500",
+        "pk": 69,
+        "fields": {
+            "stock_id": "BLK"
+        }
+    },
+    {
+        "model": "stocks.SP500",
+        "pk": 70,
+        "fields": {
+            "stock_id": "BK"
+        }
+    },
+    {
+        "model": "stocks.SP500",
+        "pk": 71,
+        "fields": {
+            "stock_id": "BA"
+        }
+    },
+    {
+        "model": "stocks.SP500",
+        "pk": 72,
+        "fields": {
+            "stock_id": "BKNG"
+        }
+    },
+    {
+        "model": "stocks.SP500",
+        "pk": 73,
+        "fields": {
+            "stock_id": "BWA"
+        }
+    },
+    {
+        "model": "stocks.SP500",
+        "pk": 74,
+        "fields": {
+            "stock_id": "BXP"
+        }
+    },
+    {
+        "model": "stocks.SP500",
+        "pk": 75,
+        "fields": {
+            "stock_id": "BSX"
+        }
+    },
+    {
+        "model": "stocks.SP500",
+        "pk": 76,
+        "fields": {
+            "stock_id": "BMY"
+        }
+    },
+    {
+        "model": "stocks.SP500",
+        "pk": 77,
+        "fields": {
+            "stock_id": "AVGO"
+        }
+    },
+    {
+        "model": "stocks.SP500",
+        "pk": 78,
+        "fields": {
+            "stock_id": "BR"
+        }
+    },
+    {
+        "model": "stocks.SP500",
+        "pk": 79,
+        "fields": {
+            "stock_id": "BF.B"
+        }
+    },
+    {
+        "model": "stocks.SP500",
+        "pk": 80,
+        "fields": {
+            "stock_id": "CHRW"
+        }
+    },
+    {
+        "model": "stocks.SP500",
+        "pk": 81,
+        "fields": {
+            "stock_id": "COG"
+        }
+    },
+    {
+        "model": "stocks.SP500",
+        "pk": 82,
+        "fields": {
+            "stock_id": "CDNS"
+        }
+    },
+    {
+        "model": "stocks.SP500",
+        "pk": 83,
+        "fields": {
+            "stock_id": "CZR"
+        }
+    },
+    {
+        "model": "stocks.SP500",
+        "pk": 84,
+        "fields": {
+            "stock_id": "CPB"
+        }
+    },
+    {
+        "model": "stocks.SP500",
+        "pk": 85,
+        "fields": {
+            "stock_id": "COF"
+        }
+    },
+    {
+        "model": "stocks.SP500",
+        "pk": 86,
+        "fields": {
+            "stock_id": "CAH"
+        }
+    },
+    {
+        "model": "stocks.SP500",
+        "pk": 87,
+        "fields": {
+            "stock_id": "KMX"
+        }
+    },
+    {
+        "model": "stocks.SP500",
+        "pk": 88,
+        "fields": {
+            "stock_id": "CCL"
+        }
+    },
+    {
+        "model": "stocks.SP500",
+        "pk": 89,
+        "fields": {
+            "stock_id": "CARR"
+        }
+    },
+    {
+        "model": "stocks.SP500",
+        "pk": 90,
+        "fields": {
+            "stock_id": "CTLT"
+        }
+    },
+    {
+        "model": "stocks.SP500",
+        "pk": 91,
+        "fields": {
+            "stock_id": "CAT"
+        }
+    },
+    {
+        "model": "stocks.SP500",
+        "pk": 92,
+        "fields": {
+            "stock_id": "CBOE"
+        }
+    },
+    {
+        "model": "stocks.SP500",
+        "pk": 93,
+        "fields": {
+            "stock_id": "CBRE"
+        }
+    },
+    {
+        "model": "stocks.SP500",
+        "pk": 94,
+        "fields": {
+            "stock_id": "CDW"
+        }
+    },
+    {
+        "model": "stocks.SP500",
+        "pk": 95,
+        "fields": {
+            "stock_id": "CE"
+        }
+    },
+    {
+        "model": "stocks.SP500",
+        "pk": 96,
+        "fields": {
+            "stock_id": "CNC"
+        }
+    },
+    {
+        "model": "stocks.SP500",
+        "pk": 97,
+        "fields": {
+            "stock_id": "CNP"
+        }
+    },
+    {
+        "model": "stocks.SP500",
+        "pk": 98,
+        "fields": {
+            "stock_id": "CERN"
+        }
+    },
+    {
+        "model": "stocks.SP500",
+        "pk": 99,
+        "fields": {
+            "stock_id": "CF"
+        }
+    },
+    {
+        "model": "stocks.SP500",
+        "pk": 100,
+        "fields": {
+            "stock_id": "CRL"
+        }
+    },
+    {
+        "model": "stocks.SP500",
+        "pk": 101,
+        "fields": {
+            "stock_id": "SCHW"
+        }
+    },
+    {
+        "model": "stocks.SP500",
+        "pk": 102,
+        "fields": {
+            "stock_id": "CHTR"
+        }
+    },
+    {
+        "model": "stocks.SP500",
+        "pk": 103,
+        "fields": {
+            "stock_id": "CVX"
+        }
+    },
+    {
+        "model": "stocks.SP500",
+        "pk": 104,
+        "fields": {
+            "stock_id": "CMG"
+        }
+    },
+    {
+        "model": "stocks.SP500",
+        "pk": 105,
+        "fields": {
+            "stock_id": "CB"
+        }
+    },
+    {
+        "model": "stocks.SP500",
+        "pk": 106,
+        "fields": {
+            "stock_id": "CHD"
+        }
+    },
+    {
+        "model": "stocks.SP500",
+        "pk": 107,
+        "fields": {
+            "stock_id": "CI"
+        }
+    },
+    {
+        "model": "stocks.SP500",
+        "pk": 108,
+        "fields": {
+            "stock_id": "CINF"
+        }
+    },
+    {
+        "model": "stocks.SP500",
+        "pk": 109,
+        "fields": {
+            "stock_id": "CTAS"
+        }
+    },
+    {
+        "model": "stocks.SP500",
+        "pk": 110,
+        "fields": {
+            "stock_id": "CSCO"
+        }
+    },
+    {
+        "model": "stocks.SP500",
+        "pk": 111,
+        "fields": {
+            "stock_id": "C"
+        }
+    },
+    {
+        "model": "stocks.SP500",
+        "pk": 112,
+        "fields": {
+            "stock_id": "CFG"
+        }
+    },
+    {
+        "model": "stocks.SP500",
+        "pk": 113,
+        "fields": {
+            "stock_id": "CTXS"
+        }
+    },
+    {
+        "model": "stocks.SP500",
+        "pk": 114,
+        "fields": {
+            "stock_id": "CLX"
+        }
+    },
+    {
+        "model": "stocks.SP500",
+        "pk": 115,
+        "fields": {
+            "stock_id": "CME"
+        }
+    },
+    {
+        "model": "stocks.SP500",
+        "pk": 116,
+        "fields": {
+            "stock_id": "CMS"
+        }
+    },
+    {
+        "model": "stocks.SP500",
+        "pk": 117,
+        "fields": {
+            "stock_id": "KO"
+        }
+    },
+    {
+        "model": "stocks.SP500",
+        "pk": 118,
+        "fields": {
+            "stock_id": "CTSH"
+        }
+    },
+    {
+        "model": "stocks.SP500",
+        "pk": 119,
+        "fields": {
+            "stock_id": "CL"
+        }
+    },
+    {
+        "model": "stocks.SP500",
+        "pk": 120,
+        "fields": {
+            "stock_id": "CMCSA"
+        }
+    },
+    {
+        "model": "stocks.SP500",
+        "pk": 121,
+        "fields": {
+            "stock_id": "CMA"
+        }
+    },
+    {
+        "model": "stocks.SP500",
+        "pk": 122,
+        "fields": {
+            "stock_id": "CAG"
+        }
+    },
+    {
+        "model": "stocks.SP500",
+        "pk": 123,
+        "fields": {
+            "stock_id": "COP"
+        }
+    },
+    {
+        "model": "stocks.SP500",
+        "pk": 124,
+        "fields": {
+            "stock_id": "ED"
+        }
+    },
+    {
+        "model": "stocks.SP500",
+        "pk": 125,
+        "fields": {
+            "stock_id": "STZ"
+        }
+    },
+    {
+        "model": "stocks.SP500",
+        "pk": 126,
+        "fields": {
+            "stock_id": "CPRT"
+        }
+    },
+    {
+        "model": "stocks.SP500",
+        "pk": 127,
+        "fields": {
+            "stock_id": "GLW"
+        }
+    },
+    {
+        "model": "stocks.SP500",
+        "pk": 128,
+        "fields": {
+            "stock_id": "CTVA"
+        }
+    },
+    {
+        "model": "stocks.SP500",
+        "pk": 129,
+        "fields": {
+            "stock_id": "COST"
+        }
+    },
+    {
+        "model": "stocks.SP500",
+        "pk": 130,
+        "fields": {
+            "stock_id": "CCI"
+        }
+    },
+    {
+        "model": "stocks.SP500",
+        "pk": 131,
+        "fields": {
+            "stock_id": "CSX"
+        }
+    },
+    {
+        "model": "stocks.SP500",
+        "pk": 132,
+        "fields": {
+            "stock_id": "CMI"
+        }
+    },
+    {
+        "model": "stocks.SP500",
+        "pk": 133,
+        "fields": {
+            "stock_id": "CVS"
+        }
+    },
+    {
+        "model": "stocks.SP500",
+        "pk": 134,
+        "fields": {
+            "stock_id": "DHI"
+        }
+    },
+    {
+        "model": "stocks.SP500",
+        "pk": 135,
+        "fields": {
+            "stock_id": "DHR"
+        }
+    },
+    {
+        "model": "stocks.SP500",
+        "pk": 136,
+        "fields": {
+            "stock_id": "DRI"
+        }
+    },
+    {
+        "model": "stocks.SP500",
+        "pk": 137,
+        "fields": {
+            "stock_id": "DVA"
+        }
+    },
+    {
+        "model": "stocks.SP500",
+        "pk": 138,
+        "fields": {
+            "stock_id": "DE"
+        }
+    },
+    {
+        "model": "stocks.SP500",
+        "pk": 139,
+        "fields": {
+            "stock_id": "DAL"
+        }
+    },
+    {
+        "model": "stocks.SP500",
+        "pk": 140,
+        "fields": {
+            "stock_id": "XRAY"
+        }
+    },
+    {
+        "model": "stocks.SP500",
+        "pk": 141,
+        "fields": {
+            "stock_id": "DVN"
+        }
+    },
+    {
+        "model": "stocks.SP500",
+        "pk": 142,
+        "fields": {
+            "stock_id": "DXCM"
+        }
+    },
+    {
+        "model": "stocks.SP500",
+        "pk": 143,
+        "fields": {
+            "stock_id": "FANG"
+        }
+    },
+    {
+        "model": "stocks.SP500",
+        "pk": 144,
+        "fields": {
+            "stock_id": "DLR"
+        }
+    },
+    {
+        "model": "stocks.SP500",
+        "pk": 145,
+        "fields": {
+            "stock_id": "DFS"
+        }
+    },
+    {
+        "model": "stocks.SP500",
+        "pk": 146,
+        "fields": {
+            "stock_id": "DISCA"
+        }
+    },
+    {
+        "model": "stocks.SP500",
+        "pk": 147,
+        "fields": {
+            "stock_id": "DISCK"
+        }
+    },
+    {
+        "model": "stocks.SP500",
+        "pk": 148,
+        "fields": {
+            "stock_id": "DISH"
+        }
+    },
+    {
+        "model": "stocks.SP500",
+        "pk": 149,
+        "fields": {
+            "stock_id": "DG"
+        }
+    },
+    {
+        "model": "stocks.SP500",
+        "pk": 150,
+        "fields": {
+            "stock_id": "DLTR"
+        }
+    },
+    {
+        "model": "stocks.SP500",
+        "pk": 151,
+        "fields": {
+            "stock_id": "D"
+        }
+    },
+    {
+        "model": "stocks.SP500",
+        "pk": 152,
+        "fields": {
+            "stock_id": "DPZ"
+        }
+    },
+    {
+        "model": "stocks.SP500",
+        "pk": 153,
+        "fields": {
+            "stock_id": "DOV"
+        }
+    },
+    {
+        "model": "stocks.SP500",
+        "pk": 154,
+        "fields": {
+            "stock_id": "DOW"
+        }
+    },
+    {
+        "model": "stocks.SP500",
+        "pk": 155,
+        "fields": {
+            "stock_id": "DTE"
+        }
+    },
+    {
+        "model": "stocks.SP500",
+        "pk": 156,
+        "fields": {
+            "stock_id": "DUK"
+        }
+    },
+    {
+        "model": "stocks.SP500",
+        "pk": 157,
+        "fields": {
+            "stock_id": "DRE"
+        }
+    },
+    {
+        "model": "stocks.SP500",
+        "pk": 158,
+        "fields": {
+            "stock_id": "DD"
+        }
+    },
+    {
+        "model": "stocks.SP500",
+        "pk": 159,
+        "fields": {
+            "stock_id": "DXC"
+        }
+    },
+    {
+        "model": "stocks.SP500",
+        "pk": 160,
+        "fields": {
+            "stock_id": "EMN"
+        }
+    },
+    {
+        "model": "stocks.SP500",
+        "pk": 161,
+        "fields": {
+            "stock_id": "ETN"
+        }
+    },
+    {
+        "model": "stocks.SP500",
+        "pk": 162,
+        "fields": {
+            "stock_id": "EBAY"
+        }
+    },
+    {
+        "model": "stocks.SP500",
+        "pk": 163,
+        "fields": {
+            "stock_id": "ECL"
+        }
+    },
+    {
+        "model": "stocks.SP500",
+        "pk": 164,
+        "fields": {
+            "stock_id": "EIX"
+        }
+    },
+    {
+        "model": "stocks.SP500",
+        "pk": 165,
+        "fields": {
+            "stock_id": "EW"
+        }
+    },
+    {
+        "model": "stocks.SP500",
+        "pk": 166,
+        "fields": {
+            "stock_id": "EA"
+        }
+    },
+    {
+        "model": "stocks.SP500",
+        "pk": 167,
+        "fields": {
+            "stock_id": "LLY"
+        }
+    },
+    {
+        "model": "stocks.SP500",
+        "pk": 168,
+        "fields": {
+            "stock_id": "EMR"
+        }
+    },
+    {
+        "model": "stocks.SP500",
+        "pk": 169,
+        "fields": {
+            "stock_id": "ENPH"
+        }
+    },
+    {
+        "model": "stocks.SP500",
+        "pk": 170,
+        "fields": {
+            "stock_id": "ETR"
+        }
+    },
+    {
+        "model": "stocks.SP500",
+        "pk": 171,
+        "fields": {
+            "stock_id": "EOG"
+        }
+    },
+    {
+        "model": "stocks.SP500",
+        "pk": 172,
+        "fields": {
+            "stock_id": "EFX"
+        }
+    },
+    {
+        "model": "stocks.SP500",
+        "pk": 173,
+        "fields": {
+            "stock_id": "EQIX"
+        }
+    },
+    {
+        "model": "stocks.SP500",
+        "pk": 174,
+        "fields": {
+            "stock_id": "EQR"
+        }
+    },
+    {
+        "model": "stocks.SP500",
+        "pk": 175,
+        "fields": {
+            "stock_id": "ESS"
+        }
+    },
+    {
+        "model": "stocks.SP500",
+        "pk": 176,
+        "fields": {
+            "stock_id": "EL"
+        }
+    },
+    {
+        "model": "stocks.SP500",
+        "pk": 177,
+        "fields": {
+            "stock_id": "ETSY"
+        }
+    },
+    {
+        "model": "stocks.SP500",
+        "pk": 178,
+        "fields": {
+            "stock_id": "RE"
+        }
+    },
+    {
+        "model": "stocks.SP500",
+        "pk": 179,
+        "fields": {
+            "stock_id": "EVRG"
+        }
+    },
+    {
+        "model": "stocks.SP500",
+        "pk": 180,
+        "fields": {
+            "stock_id": "ES"
+        }
+    },
+    {
+        "model": "stocks.SP500",
+        "pk": 181,
+        "fields": {
+            "stock_id": "EXC"
+        }
+    },
+    {
+        "model": "stocks.SP500",
+        "pk": 182,
+        "fields": {
+            "stock_id": "EXPE"
+        }
+    },
+    {
+        "model": "stocks.SP500",
+        "pk": 183,
+        "fields": {
+            "stock_id": "EXPD"
+        }
+    },
+    {
+        "model": "stocks.SP500",
+        "pk": 184,
+        "fields": {
+            "stock_id": "EXR"
+        }
+    },
+    {
+        "model": "stocks.SP500",
+        "pk": 185,
+        "fields": {
+            "stock_id": "XOM"
+        }
+    },
+    {
+        "model": "stocks.SP500",
+        "pk": 186,
+        "fields": {
+            "stock_id": "FFIV"
+        }
+    },
+    {
+        "model": "stocks.SP500",
+        "pk": 187,
+        "fields": {
+            "stock_id": "FB"
+        }
+    },
+    {
+        "model": "stocks.SP500",
+        "pk": 188,
+        "fields": {
+            "stock_id": "FAST"
+        }
+    },
+    {
+        "model": "stocks.SP500",
+        "pk": 189,
+        "fields": {
+            "stock_id": "FRT"
+        }
+    },
+    {
+        "model": "stocks.SP500",
+        "pk": 190,
+        "fields": {
+            "stock_id": "FDX"
+        }
+    },
+    {
+        "model": "stocks.SP500",
+        "pk": 191,
+        "fields": {
+            "stock_id": "FIS"
+        }
+    },
+    {
+        "model": "stocks.SP500",
+        "pk": 192,
+        "fields": {
+            "stock_id": "FITB"
+        }
+    },
+    {
+        "model": "stocks.SP500",
+        "pk": 193,
+        "fields": {
+            "stock_id": "FRC"
+        }
+    },
+    {
+        "model": "stocks.SP500",
+        "pk": 194,
+        "fields": {
+            "stock_id": "FE"
+        }
+    },
+    {
+        "model": "stocks.SP500",
+        "pk": 195,
+        "fields": {
+            "stock_id": "FISV"
+        }
+    },
+    {
+        "model": "stocks.SP500",
+        "pk": 196,
+        "fields": {
+            "stock_id": "FLT"
+        }
+    },
+    {
+        "model": "stocks.SP500",
+        "pk": 197,
+        "fields": {
+            "stock_id": "FMC"
+        }
+    },
+    {
+        "model": "stocks.SP500",
+        "pk": 198,
+        "fields": {
+            "stock_id": "F"
+        }
+    },
+    {
+        "model": "stocks.SP500",
+        "pk": 199,
+        "fields": {
+            "stock_id": "FTNT"
+        }
+    },
+    {
+        "model": "stocks.SP500",
+        "pk": 200,
+        "fields": {
+            "stock_id": "FTV"
+        }
+    },
+    {
+        "model": "stocks.SP500",
+        "pk": 201,
+        "fields": {
+            "stock_id": "FBHS"
+        }
+    },
+    {
+        "model": "stocks.SP500",
+        "pk": 202,
+        "fields": {
+            "stock_id": "FOXA"
+        }
+    },
+    {
+        "model": "stocks.SP500",
+        "pk": 203,
+        "fields": {
+            "stock_id": "FOX"
+        }
+    },
+    {
+        "model": "stocks.SP500",
+        "pk": 204,
+        "fields": {
+            "stock_id": "BEN"
+        }
+    },
+    {
+        "model": "stocks.SP500",
+        "pk": 205,
+        "fields": {
+            "stock_id": "FCX"
+        }
+    },
+    {
+        "model": "stocks.SP500",
+        "pk": 206,
+        "fields": {
+            "stock_id": "GPS"
+        }
+    },
+    {
+        "model": "stocks.SP500",
+        "pk": 207,
+        "fields": {
+            "stock_id": "GRMN"
+        }
+    },
+    {
+        "model": "stocks.SP500",
+        "pk": 208,
+        "fields": {
+            "stock_id": "IT"
+        }
+    },
+    {
+        "model": "stocks.SP500",
+        "pk": 209,
+        "fields": {
+            "stock_id": "GNRC"
+        }
+    },
+    {
+        "model": "stocks.SP500",
+        "pk": 210,
+        "fields": {
+            "stock_id": "GD"
+        }
+    },
+    {
+        "model": "stocks.SP500",
+        "pk": 211,
+        "fields": {
+            "stock_id": "GE"
+        }
+    },
+    {
+        "model": "stocks.SP500",
+        "pk": 212,
+        "fields": {
+            "stock_id": "GIS"
+        }
+    },
+    {
+        "model": "stocks.SP500",
+        "pk": 213,
+        "fields": {
+            "stock_id": "GM"
+        }
+    },
+    {
+        "model": "stocks.SP500",
+        "pk": 214,
+        "fields": {
+            "stock_id": "GPC"
+        }
+    },
+    {
+        "model": "stocks.SP500",
+        "pk": 215,
+        "fields": {
+            "stock_id": "GILD"
+        }
+    },
+    {
+        "model": "stocks.SP500",
+        "pk": 216,
+        "fields": {
+            "stock_id": "GPN"
+        }
+    },
+    {
+        "model": "stocks.SP500",
+        "pk": 217,
+        "fields": {
+            "stock_id": "GL"
+        }
+    },
+    {
+        "model": "stocks.SP500",
+        "pk": 218,
+        "fields": {
+            "stock_id": "GS"
+        }
+    },
+    {
+        "model": "stocks.SP500",
+        "pk": 219,
+        "fields": {
+            "stock_id": "HAL"
+        }
+    },
+    {
+        "model": "stocks.SP500",
+        "pk": 220,
+        "fields": {
+            "stock_id": "HBI"
+        }
+    },
+    {
+        "model": "stocks.SP500",
+        "pk": 221,
+        "fields": {
+            "stock_id": "HAS"
+        }
+    },
+    {
+        "model": "stocks.SP500",
+        "pk": 222,
+        "fields": {
+            "stock_id": "HCA"
+        }
+    },
+    {
+        "model": "stocks.SP500",
+        "pk": 223,
+        "fields": {
+            "stock_id": "PEAK"
+        }
+    },
+    {
+        "model": "stocks.SP500",
+        "pk": 224,
+        "fields": {
+            "stock_id": "HSIC"
+        }
+    },
+    {
+        "model": "stocks.SP500",
+        "pk": 225,
+        "fields": {
+            "stock_id": "HES"
+        }
+    },
+    {
+        "model": "stocks.SP500",
+        "pk": 226,
+        "fields": {
+            "stock_id": "HPE"
+        }
+    },
+    {
+        "model": "stocks.SP500",
+        "pk": 227,
+        "fields": {
+            "stock_id": "HLT"
+        }
+    },
+    {
+        "model": "stocks.SP500",
+        "pk": 228,
+        "fields": {
+            "stock_id": "HOLX"
+        }
+    },
+    {
+        "model": "stocks.SP500",
+        "pk": 229,
+        "fields": {
+            "stock_id": "HD"
+        }
+    },
+    {
+        "model": "stocks.SP500",
+        "pk": 230,
+        "fields": {
+            "stock_id": "HON"
+        }
+    },
+    {
+        "model": "stocks.SP500",
+        "pk": 231,
+        "fields": {
+            "stock_id": "HRL"
+        }
+    },
+    {
+        "model": "stocks.SP500",
+        "pk": 232,
+        "fields": {
+            "stock_id": "HST"
+        }
+    },
+    {
+        "model": "stocks.SP500",
+        "pk": 233,
+        "fields": {
+            "stock_id": "HWM"
+        }
+    },
+    {
+        "model": "stocks.SP500",
+        "pk": 234,
+        "fields": {
+            "stock_id": "HPQ"
+        }
+    },
+    {
+        "model": "stocks.SP500",
+        "pk": 235,
+        "fields": {
+            "stock_id": "HUM"
+        }
+    },
+    {
+        "model": "stocks.SP500",
+        "pk": 236,
+        "fields": {
+            "stock_id": "HBAN"
+        }
+    },
+    {
+        "model": "stocks.SP500",
+        "pk": 237,
+        "fields": {
+            "stock_id": "HII"
+        }
+    },
+    {
+        "model": "stocks.SP500",
+        "pk": 238,
+        "fields": {
+            "stock_id": "IBM"
+        }
+    },
+    {
+        "model": "stocks.SP500",
+        "pk": 239,
+        "fields": {
+            "stock_id": "IEX"
+        }
+    },
+    {
+        "model": "stocks.SP500",
+        "pk": 240,
+        "fields": {
+            "stock_id": "IDXX"
+        }
+    },
+    {
+        "model": "stocks.SP500",
+        "pk": 241,
+        "fields": {
+            "stock_id": "INFO"
+        }
+    },
+    {
+        "model": "stocks.SP500",
+        "pk": 242,
+        "fields": {
+            "stock_id": "ITW"
+        }
+    },
+    {
+        "model": "stocks.SP500",
+        "pk": 243,
+        "fields": {
+            "stock_id": "ILMN"
+        }
+    },
+    {
+        "model": "stocks.SP500",
+        "pk": 244,
+        "fields": {
+            "stock_id": "INCY"
+        }
+    },
+    {
+        "model": "stocks.SP500",
+        "pk": 245,
+        "fields": {
+            "stock_id": "IR"
+        }
+    },
+    {
+        "model": "stocks.SP500",
+        "pk": 246,
+        "fields": {
+            "stock_id": "INTC"
+        }
+    },
+    {
+        "model": "stocks.SP500",
+        "pk": 247,
+        "fields": {
+            "stock_id": "ICE"
+        }
+    },
+    {
+        "model": "stocks.SP500",
+        "pk": 248,
+        "fields": {
+            "stock_id": "IFF"
+        }
+    },
+    {
+        "model": "stocks.SP500",
+        "pk": 249,
+        "fields": {
+            "stock_id": "IP"
+        }
+    },
+    {
+        "model": "stocks.SP500",
+        "pk": 250,
+        "fields": {
+            "stock_id": "IPG"
+        }
+    },
+    {
+        "model": "stocks.SP500",
+        "pk": 251,
+        "fields": {
+            "stock_id": "INTU"
+        }
+    },
+    {
+        "model": "stocks.SP500",
+        "pk": 252,
+        "fields": {
+            "stock_id": "ISRG"
+        }
+    },
+    {
+        "model": "stocks.SP500",
+        "pk": 253,
+        "fields": {
+            "stock_id": "IVZ"
+        }
+    },
+    {
+        "model": "stocks.SP500",
+        "pk": 254,
+        "fields": {
+            "stock_id": "IPGP"
+        }
+    },
+    {
+        "model": "stocks.SP500",
+        "pk": 255,
+        "fields": {
+            "stock_id": "IQV"
+        }
+    },
+    {
+        "model": "stocks.SP500",
+        "pk": 256,
+        "fields": {
+            "stock_id": "IRM"
+        }
+    },
+    {
+        "model": "stocks.SP500",
+        "pk": 257,
+        "fields": {
+            "stock_id": "JBHT"
+        }
+    },
+    {
+        "model": "stocks.SP500",
+        "pk": 258,
+        "fields": {
+            "stock_id": "JKHY"
+        }
+    },
+    {
+        "model": "stocks.SP500",
+        "pk": 259,
+        "fields": {
+            "stock_id": "J"
+        }
+    },
+    {
+        "model": "stocks.SP500",
+        "pk": 260,
+        "fields": {
+            "stock_id": "SJM"
+        }
+    },
+    {
+        "model": "stocks.SP500",
+        "pk": 261,
+        "fields": {
+            "stock_id": "JNJ"
+        }
+    },
+    {
+        "model": "stocks.SP500",
+        "pk": 262,
+        "fields": {
+            "stock_id": "JCI"
+        }
+    },
+    {
+        "model": "stocks.SP500",
+        "pk": 263,
+        "fields": {
+            "stock_id": "JPM"
+        }
+    },
+    {
+        "model": "stocks.SP500",
+        "pk": 264,
+        "fields": {
+            "stock_id": "JNPR"
+        }
+    },
+    {
+        "model": "stocks.SP500",
+        "pk": 265,
+        "fields": {
+            "stock_id": "KSU"
+        }
+    },
+    {
+        "model": "stocks.SP500",
+        "pk": 266,
+        "fields": {
+            "stock_id": "K"
+        }
+    },
+    {
+        "model": "stocks.SP500",
+        "pk": 267,
+        "fields": {
+            "stock_id": "KEY"
+        }
+    },
+    {
+        "model": "stocks.SP500",
+        "pk": 268,
+        "fields": {
+            "stock_id": "KEYS"
+        }
+    },
+    {
+        "model": "stocks.SP500",
+        "pk": 269,
+        "fields": {
+            "stock_id": "KMB"
+        }
+    },
+    {
+        "model": "stocks.SP500",
+        "pk": 270,
+        "fields": {
+            "stock_id": "KIM"
+        }
+    },
+    {
+        "model": "stocks.SP500",
+        "pk": 271,
+        "fields": {
+            "stock_id": "KMI"
+        }
+    },
+    {
+        "model": "stocks.SP500",
+        "pk": 272,
+        "fields": {
+            "stock_id": "KLAC"
+        }
+    },
+    {
+        "model": "stocks.SP500",
+        "pk": 273,
+        "fields": {
+            "stock_id": "KHC"
+        }
+    },
+    {
+        "model": "stocks.SP500",
+        "pk": 274,
+        "fields": {
+            "stock_id": "KR"
+        }
+    },
+    {
+        "model": "stocks.SP500",
+        "pk": 275,
+        "fields": {
+            "stock_id": "LHX"
+        }
+    },
+    {
+        "model": "stocks.SP500",
+        "pk": 276,
+        "fields": {
+            "stock_id": "LH"
+        }
+    },
+    {
+        "model": "stocks.SP500",
+        "pk": 277,
+        "fields": {
+            "stock_id": "LRCX"
+        }
+    },
+    {
+        "model": "stocks.SP500",
+        "pk": 278,
+        "fields": {
+            "stock_id": "LW"
+        }
+    },
+    {
+        "model": "stocks.SP500",
+        "pk": 279,
+        "fields": {
+            "stock_id": "LVS"
+        }
+    },
+    {
+        "model": "stocks.SP500",
+        "pk": 280,
+        "fields": {
+            "stock_id": "LEG"
+        }
+    },
+    {
+        "model": "stocks.SP500",
+        "pk": 281,
+        "fields": {
+            "stock_id": "LDOS"
+        }
+    },
+    {
+        "model": "stocks.SP500",
+        "pk": 282,
+        "fields": {
+            "stock_id": "LEN"
+        }
+    },
+    {
+        "model": "stocks.SP500",
+        "pk": 283,
+        "fields": {
+            "stock_id": "LNC"
+        }
+    },
+    {
+        "model": "stocks.SP500",
+        "pk": 284,
+        "fields": {
+            "stock_id": "LIN"
+        }
+    },
+    {
+        "model": "stocks.SP500",
+        "pk": 285,
+        "fields": {
+            "stock_id": "LYV"
+        }
+    },
+    {
+        "model": "stocks.SP500",
+        "pk": 286,
+        "fields": {
+            "stock_id": "LKQ"
+        }
+    },
+    {
+        "model": "stocks.SP500",
+        "pk": 287,
+        "fields": {
+            "stock_id": "LMT"
+        }
+    },
+    {
+        "model": "stocks.SP500",
+        "pk": 288,
+        "fields": {
+            "stock_id": "L"
+        }
+    },
+    {
+        "model": "stocks.SP500",
+        "pk": 289,
+        "fields": {
+            "stock_id": "LOW"
+        }
+    },
+    {
+        "model": "stocks.SP500",
+        "pk": 290,
+        "fields": {
+            "stock_id": "LUMN"
+        }
+    },
+    {
+        "model": "stocks.SP500",
+        "pk": 291,
+        "fields": {
+            "stock_id": "LYB"
+        }
+    },
+    {
+        "model": "stocks.SP500",
+        "pk": 292,
+        "fields": {
+            "stock_id": "MTB"
+        }
+    },
+    {
+        "model": "stocks.SP500",
+        "pk": 293,
+        "fields": {
+            "stock_id": "MRO"
+        }
+    },
+    {
+        "model": "stocks.SP500",
+        "pk": 294,
+        "fields": {
+            "stock_id": "MPC"
+        }
+    },
+    {
+        "model": "stocks.SP500",
+        "pk": 295,
+        "fields": {
+            "stock_id": "MKTX"
+        }
+    },
+    {
+        "model": "stocks.SP500",
+        "pk": 296,
+        "fields": {
+            "stock_id": "MAR"
+        }
+    },
+    {
+        "model": "stocks.SP500",
+        "pk": 297,
+        "fields": {
+            "stock_id": "MMC"
+        }
+    },
+    {
+        "model": "stocks.SP500",
+        "pk": 298,
+        "fields": {
+            "stock_id": "MLM"
+        }
+    },
+    {
+        "model": "stocks.SP500",
+        "pk": 299,
+        "fields": {
+            "stock_id": "MAS"
+        }
+    },
+    {
+        "model": "stocks.SP500",
+        "pk": 300,
+        "fields": {
+            "stock_id": "MA"
+        }
+    },
+    {
+        "model": "stocks.SP500",
+        "pk": 301,
+        "fields": {
+            "stock_id": "MKC"
+        }
+    },
+    {
+        "model": "stocks.SP500",
+        "pk": 302,
+        "fields": {
+            "stock_id": "MCD"
+        }
+    },
+    {
+        "model": "stocks.SP500",
+        "pk": 303,
+        "fields": {
+            "stock_id": "MCK"
+        }
+    },
+    {
+        "model": "stocks.SP500",
+        "pk": 304,
+        "fields": {
+            "stock_id": "MDT"
+        }
+    },
+    {
+        "model": "stocks.SP500",
+        "pk": 305,
+        "fields": {
+            "stock_id": "MRK"
+        }
+    },
+    {
+        "model": "stocks.SP500",
+        "pk": 306,
+        "fields": {
+            "stock_id": "MET"
+        }
+    },
+    {
+        "model": "stocks.SP500",
+        "pk": 307,
+        "fields": {
+            "stock_id": "MTD"
+        }
+    },
+    {
+        "model": "stocks.SP500",
+        "pk": 308,
+        "fields": {
+            "stock_id": "MGM"
+        }
+    },
+    {
+        "model": "stocks.SP500",
+        "pk": 309,
+        "fields": {
+            "stock_id": "MCHP"
+        }
+    },
+    {
+        "model": "stocks.SP500",
+        "pk": 310,
+        "fields": {
+            "stock_id": "MU"
+        }
+    },
+    {
+        "model": "stocks.SP500",
+        "pk": 311,
+        "fields": {
+            "stock_id": "MSFT"
+        }
+    },
+    {
+        "model": "stocks.SP500",
+        "pk": 312,
+        "fields": {
+            "stock_id": "MAA"
+        }
+    },
+    {
+        "model": "stocks.SP500",
+        "pk": 313,
+        "fields": {
+            "stock_id": "MRNA"
+        }
+    },
+    {
+        "model": "stocks.SP500",
+        "pk": 314,
+        "fields": {
+            "stock_id": "MHK"
+        }
+    },
+    {
+        "model": "stocks.SP500",
+        "pk": 315,
+        "fields": {
+            "stock_id": "TAP"
+        }
+    },
+    {
+        "model": "stocks.SP500",
+        "pk": 316,
+        "fields": {
+            "stock_id": "MDLZ"
+        }
+    },
+    {
+        "model": "stocks.SP500",
+        "pk": 317,
+        "fields": {
+            "stock_id": "MPWR"
+        }
+    },
+    {
+        "model": "stocks.SP500",
+        "pk": 318,
+        "fields": {
+            "stock_id": "MNST"
+        }
+    },
+    {
+        "model": "stocks.SP500",
+        "pk": 319,
+        "fields": {
+            "stock_id": "MCO"
+        }
+    },
+    {
+        "model": "stocks.SP500",
+        "pk": 320,
+        "fields": {
+            "stock_id": "MS"
+        }
+    },
+    {
+        "model": "stocks.SP500",
+        "pk": 321,
+        "fields": {
+            "stock_id": "MSI"
+        }
+    },
+    {
+        "model": "stocks.SP500",
+        "pk": 322,
+        "fields": {
+            "stock_id": "MSCI"
+        }
+    },
+    {
+        "model": "stocks.SP500",
+        "pk": 323,
+        "fields": {
+            "stock_id": "NDAQ"
+        }
+    },
+    {
+        "model": "stocks.SP500",
+        "pk": 324,
+        "fields": {
+            "stock_id": "NTAP"
+        }
+    },
+    {
+        "model": "stocks.SP500",
+        "pk": 325,
+        "fields": {
+            "stock_id": "NFLX"
+        }
+    },
+    {
+        "model": "stocks.SP500",
+        "pk": 326,
+        "fields": {
+            "stock_id": "NWL"
+        }
+    },
+    {
+        "model": "stocks.SP500",
+        "pk": 327,
+        "fields": {
+            "stock_id": "NEM"
+        }
+    },
+    {
+        "model": "stocks.SP500",
+        "pk": 328,
+        "fields": {
+            "stock_id": "NWSA"
+        }
+    },
+    {
+        "model": "stocks.SP500",
+        "pk": 329,
+        "fields": {
+            "stock_id": "NWS"
+        }
+    },
+    {
+        "model": "stocks.SP500",
+        "pk": 330,
+        "fields": {
+            "stock_id": "NEE"
+        }
+    },
+    {
+        "model": "stocks.SP500",
+        "pk": 331,
+        "fields": {
+            "stock_id": "NLSN"
+        }
+    },
+    {
+        "model": "stocks.SP500",
+        "pk": 332,
+        "fields": {
+            "stock_id": "NKE"
+        }
+    },
+    {
+        "model": "stocks.SP500",
+        "pk": 333,
+        "fields": {
+            "stock_id": "NI"
+        }
+    },
+    {
+        "model": "stocks.SP500",
+        "pk": 334,
+        "fields": {
+            "stock_id": "NSC"
+        }
+    },
+    {
+        "model": "stocks.SP500",
+        "pk": 335,
+        "fields": {
+            "stock_id": "NTRS"
+        }
+    },
+    {
+        "model": "stocks.SP500",
+        "pk": 336,
+        "fields": {
+            "stock_id": "NOC"
+        }
+    },
+    {
+        "model": "stocks.SP500",
+        "pk": 337,
+        "fields": {
+            "stock_id": "NLOK"
+        }
+    },
+    {
+        "model": "stocks.SP500",
+        "pk": 338,
+        "fields": {
+            "stock_id": "NCLH"
+        }
+    },
+    {
+        "model": "stocks.SP500",
+        "pk": 339,
+        "fields": {
+            "stock_id": "NOV"
+        }
+    },
+    {
+        "model": "stocks.SP500",
+        "pk": 340,
+        "fields": {
+            "stock_id": "NRG"
+        }
+    },
+    {
+        "model": "stocks.SP500",
+        "pk": 341,
+        "fields": {
+            "stock_id": "NUE"
+        }
+    },
+    {
+        "model": "stocks.SP500",
+        "pk": 342,
+        "fields": {
+            "stock_id": "NVDA"
+        }
+    },
+    {
+        "model": "stocks.SP500",
+        "pk": 343,
+        "fields": {
+            "stock_id": "NVR"
+        }
+    },
+    {
+        "model": "stocks.SP500",
+        "pk": 344,
+        "fields": {
+            "stock_id": "NXPI"
+        }
+    },
+    {
+        "model": "stocks.SP500",
+        "pk": 345,
+        "fields": {
+            "stock_id": "ORLY"
+        }
+    },
+    {
+        "model": "stocks.SP500",
+        "pk": 346,
+        "fields": {
+            "stock_id": "OXY"
+        }
+    },
+    {
+        "model": "stocks.SP500",
+        "pk": 347,
+        "fields": {
+            "stock_id": "ODFL"
+        }
+    },
+    {
+        "model": "stocks.SP500",
+        "pk": 348,
+        "fields": {
+            "stock_id": "OMC"
+        }
+    },
+    {
+        "model": "stocks.SP500",
+        "pk": 349,
+        "fields": {
+            "stock_id": "OKE"
+        }
+    },
+    {
+        "model": "stocks.SP500",
+        "pk": 350,
+        "fields": {
+            "stock_id": "ORCL"
+        }
+    },
+    {
+        "model": "stocks.SP500",
+        "pk": 351,
+        "fields": {
+            "stock_id": "OGN"
+        }
+    },
+    {
+        "model": "stocks.SP500",
+        "pk": 352,
+        "fields": {
+            "stock_id": "OTIS"
+        }
+    },
+    {
+        "model": "stocks.SP500",
+        "pk": 353,
+        "fields": {
+            "stock_id": "PCAR"
+        }
+    },
+    {
+        "model": "stocks.SP500",
+        "pk": 354,
+        "fields": {
+            "stock_id": "PKG"
+        }
+    },
+    {
+        "model": "stocks.SP500",
+        "pk": 355,
+        "fields": {
+            "stock_id": "PH"
+        }
+    },
+    {
+        "model": "stocks.SP500",
+        "pk": 356,
+        "fields": {
+            "stock_id": "PAYX"
+        }
+    },
+    {
+        "model": "stocks.SP500",
+        "pk": 357,
+        "fields": {
+            "stock_id": "PAYC"
+        }
+    },
+    {
+        "model": "stocks.SP500",
+        "pk": 358,
+        "fields": {
+            "stock_id": "PYPL"
+        }
+    },
+    {
+        "model": "stocks.SP500",
+        "pk": 359,
+        "fields": {
+            "stock_id": "PENN"
+        }
+    },
+    {
+        "model": "stocks.SP500",
+        "pk": 360,
+        "fields": {
+            "stock_id": "PNR"
+        }
+    },
+    {
+        "model": "stocks.SP500",
+        "pk": 361,
+        "fields": {
+            "stock_id": "PBCT"
+        }
+    },
+    {
+        "model": "stocks.SP500",
+        "pk": 362,
+        "fields": {
+            "stock_id": "PEP"
+        }
+    },
+    {
+        "model": "stocks.SP500",
+        "pk": 363,
+        "fields": {
+            "stock_id": "PKI"
+        }
+    },
+    {
+        "model": "stocks.SP500",
+        "pk": 364,
+        "fields": {
+            "stock_id": "PRGO"
+        }
+    },
+    {
+        "model": "stocks.SP500",
+        "pk": 365,
+        "fields": {
+            "stock_id": "PFE"
+        }
+    },
+    {
+        "model": "stocks.SP500",
+        "pk": 366,
+        "fields": {
+            "stock_id": "PM"
+        }
+    },
+    {
+        "model": "stocks.SP500",
+        "pk": 367,
+        "fields": {
+            "stock_id": "PSX"
+        }
+    },
+    {
+        "model": "stocks.SP500",
+        "pk": 368,
+        "fields": {
+            "stock_id": "PNW"
+        }
+    },
+    {
+        "model": "stocks.SP500",
+        "pk": 369,
+        "fields": {
+            "stock_id": "PXD"
+        }
+    },
+    {
+        "model": "stocks.SP500",
+        "pk": 370,
+        "fields": {
+            "stock_id": "PNC"
+        }
+    },
+    {
+        "model": "stocks.SP500",
+        "pk": 371,
+        "fields": {
+            "stock_id": "POOL"
+        }
+    },
+    {
+        "model": "stocks.SP500",
+        "pk": 372,
+        "fields": {
+            "stock_id": "PPG"
+        }
+    },
+    {
+        "model": "stocks.SP500",
+        "pk": 373,
+        "fields": {
+            "stock_id": "PPL"
+        }
+    },
+    {
+        "model": "stocks.SP500",
+        "pk": 374,
+        "fields": {
+            "stock_id": "PFG"
+        }
+    },
+    {
+        "model": "stocks.SP500",
+        "pk": 375,
+        "fields": {
+            "stock_id": "PG"
+        }
+    },
+    {
+        "model": "stocks.SP500",
+        "pk": 376,
+        "fields": {
+            "stock_id": "PGR"
+        }
+    },
+    {
+        "model": "stocks.SP500",
+        "pk": 377,
+        "fields": {
+            "stock_id": "PLD"
+        }
+    },
+    {
+        "model": "stocks.SP500",
+        "pk": 378,
+        "fields": {
+            "stock_id": "PRU"
+        }
+    },
+    {
+        "model": "stocks.SP500",
+        "pk": 379,
+        "fields": {
+            "stock_id": "PTC"
+        }
+    },
+    {
+        "model": "stocks.SP500",
+        "pk": 380,
+        "fields": {
+            "stock_id": "PEG"
+        }
+    },
+    {
+        "model": "stocks.SP500",
+        "pk": 381,
+        "fields": {
+            "stock_id": "PSA"
+        }
+    },
+    {
+        "model": "stocks.SP500",
+        "pk": 382,
+        "fields": {
+            "stock_id": "PHM"
+        }
+    },
+    {
+        "model": "stocks.SP500",
+        "pk": 383,
+        "fields": {
+            "stock_id": "PVH"
+        }
+    },
+    {
+        "model": "stocks.SP500",
+        "pk": 384,
+        "fields": {
+            "stock_id": "QRVO"
+        }
+    },
+    {
+        "model": "stocks.SP500",
+        "pk": 385,
+        "fields": {
+            "stock_id": "QCOM"
+        }
+    },
+    {
+        "model": "stocks.SP500",
+        "pk": 386,
+        "fields": {
+            "stock_id": "PWR"
+        }
+    },
+    {
+        "model": "stocks.SP500",
+        "pk": 387,
+        "fields": {
+            "stock_id": "DGX"
+        }
+    },
+    {
+        "model": "stocks.SP500",
+        "pk": 388,
+        "fields": {
+            "stock_id": "RL"
+        }
+    },
+    {
+        "model": "stocks.SP500",
+        "pk": 389,
+        "fields": {
+            "stock_id": "RJF"
+        }
+    },
+    {
+        "model": "stocks.SP500",
+        "pk": 390,
+        "fields": {
+            "stock_id": "RTX"
+        }
+    },
+    {
+        "model": "stocks.SP500",
+        "pk": 391,
+        "fields": {
+            "stock_id": "O"
+        }
+    },
+    {
+        "model": "stocks.SP500",
+        "pk": 392,
+        "fields": {
+            "stock_id": "REG"
+        }
+    },
+    {
+        "model": "stocks.SP500",
+        "pk": 393,
+        "fields": {
+            "stock_id": "REGN"
+        }
+    },
+    {
+        "model": "stocks.SP500",
+        "pk": 394,
+        "fields": {
+            "stock_id": "RF"
+        }
+    },
+    {
+        "model": "stocks.SP500",
+        "pk": 395,
+        "fields": {
+            "stock_id": "RSG"
+        }
+    },
+    {
+        "model": "stocks.SP500",
+        "pk": 396,
+        "fields": {
+            "stock_id": "RMD"
+        }
+    },
+    {
+        "model": "stocks.SP500",
+        "pk": 397,
+        "fields": {
+            "stock_id": "RHI"
+        }
+    },
+    {
+        "model": "stocks.SP500",
+        "pk": 398,
+        "fields": {
+            "stock_id": "ROK"
+        }
+    },
+    {
+        "model": "stocks.SP500",
+        "pk": 399,
+        "fields": {
+            "stock_id": "ROL"
+        }
+    },
+    {
+        "model": "stocks.SP500",
+        "pk": 400,
+        "fields": {
+            "stock_id": "ROP"
+        }
+    },
+    {
+        "model": "stocks.SP500",
+        "pk": 401,
+        "fields": {
+            "stock_id": "ROST"
+        }
+    },
+    {
+        "model": "stocks.SP500",
+        "pk": 402,
+        "fields": {
+            "stock_id": "RCL"
+        }
+    },
+    {
+        "model": "stocks.SP500",
+        "pk": 403,
+        "fields": {
+            "stock_id": "SPGI"
+        }
+    },
+    {
+        "model": "stocks.SP500",
+        "pk": 404,
+        "fields": {
+            "stock_id": "CRM"
+        }
+    },
+    {
+        "model": "stocks.SP500",
+        "pk": 405,
+        "fields": {
+            "stock_id": "SBAC"
+        }
+    },
+    {
+        "model": "stocks.SP500",
+        "pk": 406,
+        "fields": {
+            "stock_id": "SLB"
+        }
+    },
+    {
+        "model": "stocks.SP500",
+        "pk": 407,
+        "fields": {
+            "stock_id": "STX"
+        }
+    },
+    {
+        "model": "stocks.SP500",
+        "pk": 408,
+        "fields": {
+            "stock_id": "SEE"
+        }
+    },
+    {
+        "model": "stocks.SP500",
+        "pk": 409,
+        "fields": {
+            "stock_id": "SRE"
+        }
+    },
+    {
+        "model": "stocks.SP500",
+        "pk": 410,
+        "fields": {
+            "stock_id": "NOW"
+        }
+    },
+    {
+        "model": "stocks.SP500",
+        "pk": 411,
+        "fields": {
+            "stock_id": "SHW"
+        }
+    },
+    {
+        "model": "stocks.SP500",
+        "pk": 412,
+        "fields": {
+            "stock_id": "SPG"
+        }
+    },
+    {
+        "model": "stocks.SP500",
+        "pk": 413,
+        "fields": {
+            "stock_id": "SWKS"
+        }
+    },
+    {
+        "model": "stocks.SP500",
+        "pk": 414,
+        "fields": {
+            "stock_id": "SNA"
+        }
+    },
+    {
+        "model": "stocks.SP500",
+        "pk": 415,
+        "fields": {
+            "stock_id": "SO"
+        }
+    },
+    {
+        "model": "stocks.SP500",
+        "pk": 416,
+        "fields": {
+            "stock_id": "LUV"
+        }
+    },
+    {
+        "model": "stocks.SP500",
+        "pk": 417,
+        "fields": {
+            "stock_id": "SWK"
+        }
+    },
+    {
+        "model": "stocks.SP500",
+        "pk": 418,
+        "fields": {
+            "stock_id": "SBUX"
+        }
+    },
+    {
+        "model": "stocks.SP500",
+        "pk": 419,
+        "fields": {
+            "stock_id": "STT"
+        }
+    },
+    {
+        "model": "stocks.SP500",
+        "pk": 420,
+        "fields": {
+            "stock_id": "STE"
+        }
+    },
+    {
+        "model": "stocks.SP500",
+        "pk": 421,
+        "fields": {
+            "stock_id": "SYK"
+        }
+    },
+    {
+        "model": "stocks.SP500",
+        "pk": 422,
+        "fields": {
+            "stock_id": "SIVB"
+        }
+    },
+    {
+        "model": "stocks.SP500",
+        "pk": 423,
+        "fields": {
+            "stock_id": "SYF"
+        }
+    },
+    {
+        "model": "stocks.SP500",
+        "pk": 424,
+        "fields": {
+            "stock_id": "SNPS"
+        }
+    },
+    {
+        "model": "stocks.SP500",
+        "pk": 425,
+        "fields": {
+            "stock_id": "SYY"
+        }
+    },
+    {
+        "model": "stocks.SP500",
+        "pk": 426,
+        "fields": {
+            "stock_id": "TMUS"
+        }
+    },
+    {
+        "model": "stocks.SP500",
+        "pk": 427,
+        "fields": {
+            "stock_id": "TROW"
+        }
+    },
+    {
+        "model": "stocks.SP500",
+        "pk": 428,
+        "fields": {
+            "stock_id": "TTWO"
+        }
+    },
+    {
+        "model": "stocks.SP500",
+        "pk": 429,
+        "fields": {
+            "stock_id": "TPR"
+        }
+    },
+    {
+        "model": "stocks.SP500",
+        "pk": 430,
+        "fields": {
+            "stock_id": "TGT"
+        }
+    },
+    {
+        "model": "stocks.SP500",
+        "pk": 431,
+        "fields": {
+            "stock_id": "TEL"
+        }
+    },
+    {
+        "model": "stocks.SP500",
+        "pk": 432,
+        "fields": {
+            "stock_id": "TDY"
+        }
+    },
+    {
+        "model": "stocks.SP500",
+        "pk": 433,
+        "fields": {
+            "stock_id": "TFX"
+        }
+    },
+    {
+        "model": "stocks.SP500",
+        "pk": 434,
+        "fields": {
+            "stock_id": "TER"
+        }
+    },
+    {
+        "model": "stocks.SP500",
+        "pk": 435,
+        "fields": {
+            "stock_id": "TSLA"
+        }
+    },
+    {
+        "model": "stocks.SP500",
+        "pk": 436,
+        "fields": {
+            "stock_id": "TXN"
+        }
+    },
+    {
+        "model": "stocks.SP500",
+        "pk": 437,
+        "fields": {
+            "stock_id": "TXT"
+        }
+    },
+    {
+        "model": "stocks.SP500",
+        "pk": 438,
+        "fields": {
+            "stock_id": "COO"
+        }
+    },
+    {
+        "model": "stocks.SP500",
+        "pk": 439,
+        "fields": {
+            "stock_id": "HIG"
+        }
+    },
+    {
+        "model": "stocks.SP500",
+        "pk": 440,
+        "fields": {
+            "stock_id": "HSY"
+        }
+    },
+    {
+        "model": "stocks.SP500",
+        "pk": 441,
+        "fields": {
+            "stock_id": "MOS"
+        }
+    },
+    {
+        "model": "stocks.SP500",
+        "pk": 442,
+        "fields": {
+            "stock_id": "TRV"
+        }
+    },
+    {
+        "model": "stocks.SP500",
+        "pk": 443,
+        "fields": {
+            "stock_id": "DIS"
+        }
+    },
+    {
+        "model": "stocks.SP500",
+        "pk": 444,
+        "fields": {
+            "stock_id": "TMO"
+        }
+    },
+    {
+        "model": "stocks.SP500",
+        "pk": 445,
+        "fields": {
+            "stock_id": "TJX"
+        }
+    },
+    {
+        "model": "stocks.SP500",
+        "pk": 446,
+        "fields": {
+            "stock_id": "TSCO"
+        }
+    },
+    {
+        "model": "stocks.SP500",
+        "pk": 447,
+        "fields": {
+            "stock_id": "TT"
+        }
+    },
+    {
+        "model": "stocks.SP500",
+        "pk": 448,
+        "fields": {
+            "stock_id": "TDG"
+        }
+    },
+    {
+        "model": "stocks.SP500",
+        "pk": 449,
+        "fields": {
+            "stock_id": "TRMB"
+        }
+    },
+    {
+        "model": "stocks.SP500",
+        "pk": 450,
+        "fields": {
+            "stock_id": "TFC"
+        }
+    },
+    {
+        "model": "stocks.SP500",
+        "pk": 451,
+        "fields": {
+            "stock_id": "TWTR"
+        }
+    },
+    {
+        "model": "stocks.SP500",
+        "pk": 452,
+        "fields": {
+            "stock_id": "TYL"
+        }
+    },
+    {
+        "model": "stocks.SP500",
+        "pk": 453,
+        "fields": {
+            "stock_id": "TSN"
+        }
+    },
+    {
+        "model": "stocks.SP500",
+        "pk": 454,
+        "fields": {
+            "stock_id": "USB"
+        }
+    },
+    {
+        "model": "stocks.SP500",
+        "pk": 455,
+        "fields": {
+            "stock_id": "UDR"
+        }
+    },
+    {
+        "model": "stocks.SP500",
+        "pk": 456,
+        "fields": {
+            "stock_id": "ULTA"
+        }
+    },
+    {
+        "model": "stocks.SP500",
+        "pk": 457,
+        "fields": {
+            "stock_id": "UAA"
+        }
+    },
+    {
+        "model": "stocks.SP500",
+        "pk": 458,
+        "fields": {
+            "stock_id": "UA"
+        }
+    },
+    {
+        "model": "stocks.SP500",
+        "pk": 459,
+        "fields": {
+            "stock_id": "UNP"
+        }
+    },
+    {
+        "model": "stocks.SP500",
+        "pk": 460,
+        "fields": {
+            "stock_id": "UAL"
+        }
+    },
+    {
+        "model": "stocks.SP500",
+        "pk": 461,
+        "fields": {
+            "stock_id": "UPS"
+        }
+    },
+    {
+        "model": "stocks.SP500",
+        "pk": 462,
+        "fields": {
+            "stock_id": "URI"
+        }
+    },
+    {
+        "model": "stocks.SP500",
+        "pk": 463,
+        "fields": {
+            "stock_id": "UNH"
+        }
+    },
+    {
+        "model": "stocks.SP500",
+        "pk": 464,
+        "fields": {
+            "stock_id": "UHS"
+        }
+    },
+    {
+        "model": "stocks.SP500",
+        "pk": 465,
+        "fields": {
+            "stock_id": "UNM"
+        }
+    },
+    {
+        "model": "stocks.SP500",
+        "pk": 466,
+        "fields": {
+            "stock_id": "VLO"
+        }
+    },
+    {
+        "model": "stocks.SP500",
+        "pk": 467,
+        "fields": {
+            "stock_id": "VTR"
+        }
+    },
+    {
+        "model": "stocks.SP500",
+        "pk": 468,
+        "fields": {
+            "stock_id": "VRSN"
+        }
+    },
+    {
+        "model": "stocks.SP500",
+        "pk": 469,
+        "fields": {
+            "stock_id": "VRSK"
+        }
+    },
+    {
+        "model": "stocks.SP500",
+        "pk": 470,
+        "fields": {
+            "stock_id": "VZ"
+        }
+    },
+    {
+        "model": "stocks.SP500",
+        "pk": 471,
+        "fields": {
+            "stock_id": "VRTX"
+        }
+    },
+    {
+        "model": "stocks.SP500",
+        "pk": 472,
+        "fields": {
+            "stock_id": "VFC"
+        }
+    },
+    {
+        "model": "stocks.SP500",
+        "pk": 473,
+        "fields": {
+            "stock_id": "VIAC"
+        }
+    },
+    {
+        "model": "stocks.SP500",
+        "pk": 474,
+        "fields": {
+            "stock_id": "VTRS"
+        }
+    },
+    {
+        "model": "stocks.SP500",
+        "pk": 475,
+        "fields": {
+            "stock_id": "V"
+        }
+    },
+    {
+        "model": "stocks.SP500",
+        "pk": 476,
+        "fields": {
+            "stock_id": "VNO"
+        }
+    },
+    {
+        "model": "stocks.SP500",
+        "pk": 477,
+        "fields": {
+            "stock_id": "VMC"
+        }
+    },
+    {
+        "model": "stocks.SP500",
+        "pk": 478,
+        "fields": {
+            "stock_id": "WRB"
+        }
+    },
+    {
+        "model": "stocks.SP500",
+        "pk": 479,
+        "fields": {
+            "stock_id": "GWW"
+        }
+    },
+    {
+        "model": "stocks.SP500",
+        "pk": 480,
+        "fields": {
+            "stock_id": "WAB"
+        }
+    },
+    {
+        "model": "stocks.SP500",
+        "pk": 481,
+        "fields": {
+            "stock_id": "WBA"
+        }
+    },
+    {
+        "model": "stocks.SP500",
+        "pk": 482,
+        "fields": {
+            "stock_id": "WMT"
+        }
+    },
+    {
+        "model": "stocks.SP500",
+        "pk": 483,
+        "fields": {
+            "stock_id": "WM"
+        }
+    },
+    {
+        "model": "stocks.SP500",
+        "pk": 484,
+        "fields": {
+            "stock_id": "WAT"
+        }
+    },
+    {
+        "model": "stocks.SP500",
+        "pk": 485,
+        "fields": {
+            "stock_id": "WEC"
+        }
+    },
+    {
+        "model": "stocks.SP500",
+        "pk": 486,
+        "fields": {
+            "stock_id": "WFC"
+        }
+    },
+    {
+        "model": "stocks.SP500",
+        "pk": 487,
+        "fields": {
+            "stock_id": "WELL"
+        }
+    },
+    {
+        "model": "stocks.SP500",
+        "pk": 488,
+        "fields": {
+            "stock_id": "WST"
+        }
+    },
+    {
+        "model": "stocks.SP500",
+        "pk": 489,
+        "fields": {
+            "stock_id": "WDC"
+        }
+    },
+    {
+        "model": "stocks.SP500",
+        "pk": 490,
+        "fields": {
+            "stock_id": "WU"
+        }
+    },
+    {
+        "model": "stocks.SP500",
+        "pk": 491,
+        "fields": {
+            "stock_id": "WRK"
+        }
+    },
+    {
+        "model": "stocks.SP500",
+        "pk": 492,
+        "fields": {
+            "stock_id": "WY"
+        }
+    },
+    {
+        "model": "stocks.SP500",
+        "pk": 493,
+        "fields": {
+            "stock_id": "WHR"
+        }
+    },
+    {
+        "model": "stocks.SP500",
+        "pk": 494,
+        "fields": {
+            "stock_id": "WMB"
+        }
+    },
+    {
+        "model": "stocks.SP500",
+        "pk": 495,
+        "fields": {
+            "stock_id": "WLTW"
+        }
+    },
+    {
+        "model": "stocks.SP500",
+        "pk": 496,
+        "fields": {
+            "stock_id": "WYNN"
+        }
+    },
+    {
+        "model": "stocks.SP500",
+        "pk": 497,
+        "fields": {
+            "stock_id": "XEL"
+        }
+    },
+    {
+        "model": "stocks.SP500",
+        "pk": 498,
+        "fields": {
+            "stock_id": "XLNX"
+        }
+    },
+    {
+        "model": "stocks.SP500",
+        "pk": 499,
+        "fields": {
+            "stock_id": "XYL"
+        }
+    },
+    {
+        "model": "stocks.SP500",
+        "pk": 500,
+        "fields": {
+            "stock_id": "YUM"
+        }
+    },
+    {
+        "model": "stocks.SP500",
+        "pk": 501,
+        "fields": {
+            "stock_id": "ZBRA"
+        }
+    },
+    {
+        "model": "stocks.SP500",
+        "pk": 502,
+        "fields": {
+            "stock_id": "ZBH"
+        }
+    },
+    {
+        "model": "stocks.SP500",
+        "pk": 503,
+        "fields": {
+            "stock_id": "ZION"
+        }
+    },
+    {
+        "model": "stocks.SP500",
+        "pk": 504,
+        "fields": {
+            "stock_id": "ZTS"
         }
     }
 ]

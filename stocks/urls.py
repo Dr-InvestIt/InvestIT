@@ -12,6 +12,7 @@ urlpatterns = [
     path('saveFrontierData', views.save_stock_entry_view, name='saveFrontierData'),
     path('volatility', views.stock_create_volatility_view),
     path('delete_stock/<stock_id>', views.delete_stock, name='delete-stock'),
+    path('showlist', views.showlist, name="showlist")
     # path('calculate_frontier',
     #      views.calculate_frontier,
     #      name='calculate-frontier'),

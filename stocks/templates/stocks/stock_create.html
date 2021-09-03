@@ -6,6 +6,11 @@
     <p>Enter stock ID to see the volatility</p>
     <form method = 'POST'> {%csrf_token%}
         {{form.as_p}}
+        <datalist id="stocklist">
+            {% for results in showstock %}
+            <option value="{{ results.stock_id }}">
+            {% endfor %}
+        </datalist>
         <input type = 'submit' value = 'Go'/>
         <img src="{{ image }}">
         <p></p>

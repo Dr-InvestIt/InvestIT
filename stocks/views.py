@@ -17,6 +17,11 @@ def index_view(request):
     return render(request, 'stocks/index.html')
 
 
+def showlist(request):
+    results = SP500.objects.all
+    return render(request, "stocks/autocomplete.html", {"showstock": results})
+
+
 def stock_create_volatility_view(request):
     graph_form = GraphForm(request.POST or None)
     form = StockForm(request.POST or None)
@@ -36,7 +41,10 @@ def stock_create_volatility_view(request):
     graph_form = GraphForm()
     form = StockForm()
 
-    context = {'graph_form': graph_form, 'form': form, 'image': uri}
+    results = SP500.objects.all
+
+    context = {'graph_form': graph_form, 'form': form,
+               'image': uri, 'showstock': results}
 
     return render(request, 'stocks/stock_create.html', context)
 

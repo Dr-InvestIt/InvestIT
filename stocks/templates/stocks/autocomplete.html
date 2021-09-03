@@ -1,0 +1,13 @@
+{%extends 'base.html'%}
+
+{%block content%}
+
+<p>Enter your Stock:</p>
+<input type="text" list="stocklist" Placeholder="Search stock..." class="form-control" style="width:100%">
+<datalist id="stocklist">
+    {% for results in showstock %}
+    <option value="{{ results.stock_id }}">
+    {% endfor %}
+</datalist>
+
+{%endblock%}

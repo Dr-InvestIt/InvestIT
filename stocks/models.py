@@ -3,6 +3,10 @@ from django.db import models
 # Create your models here.
 
 
+class SP500(models.Model):
+    stock_id = models.CharField(max_length=1000)
+
+
 class Stock(models.Model):
     stock_id = models.CharField(max_length=1000)
     stock_value = models.CharField(max_length=100)

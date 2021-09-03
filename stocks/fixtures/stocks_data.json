@@ -1,0 +1,33 @@
+[
+    {
+        "model": "stocks.SP500",
+        "pk": 1,
+        "fields": {
+            "stock_id": "A"
+        }
+    }, 
+
+    {
+        "model": "stocks.SP500",
+        "pk": 2,
+        "fields": {
+            "stock_id": "AAL"
+        }
+    }, 
+
+    {
+        "model": "stocks.SP500",
+        "pk": 3,
+        "fields": {
+            "stock_id": "AAP"
+        }
+    }, 
+
+    {
+        "model": "stocks.SP500",
+        "pk": 4,
+        "fields": {
+            "stock_id": "AAPL"
+        }
+    }
+]

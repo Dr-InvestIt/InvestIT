@@ -24,7 +24,7 @@ class KDJStrategy(bt.Strategy):
         self.D = self.kd.percDSlow
         self.J = self.K*3 - self.D*2
 
-        self.crossover = bt.indicators.CrossOver(self.K, self.D, plot=False)
+        self.crossover = bt.indicators.CrossOver(self.K, self.D, plot=True)
         # self.above
 
         self.buy_signal = (self.crossover == 1)
@@ -40,6 +40,19 @@ class KDJStrategy(bt.Strategy):
             self.order = None
 
     def next(self):
+
+        global last_k_value
+        last_k_value = self.K.get(-1)[0]
+
+        global second_k_value
+        second_k_value = self.K.get(-2)[0]
+
+        global last_d_value
+        last_d_value = self.D.get(-1)[0]
+
+        global second_d_value
+        second_d_value = self.D.get(-2)[0]
+
         if self.order:
             return
 
@@ -69,26 +82,26 @@ cerebro.adddata(data)
 
 cerebro.addsizer(bt.sizers.AllInSizer, percents=99)
 
-# Add TimeReturn Analyzers for self and the benchmark data
-cerebro.addanalyzer(bt.analyzers.TimeReturn, _name='alltime_roi',
-                    timeframe=bt.TimeFrame.NoTimeFrame)
+# # Add TimeReturn Analyzers for self and the benchmark data
+# cerebro.addanalyzer(bt.analyzers.TimeReturn, _name='alltime_roi',
+#                     timeframe=bt.TimeFrame.NoTimeFrame)
 
-cerebro.addanalyzer(bt.analyzers.TimeReturn, data=data, _name='benchmark',
-                    timeframe=bt.TimeFrame.NoTimeFrame)
+# cerebro.addanalyzer(bt.analyzers.TimeReturn, data=data, _name='benchmark',
+#                     timeframe=bt.TimeFrame.NoTimeFrame)
 
-# Add TimeReturn Analyzers fot the annuyl returns
-cerebro.addanalyzer(bt.analyzers.TimeReturn, timeframe=bt.TimeFrame.Years)
-# Add a SharpeRatio
-cerebro.addanalyzer(bt.analyzers.SharpeRatio, timeframe=bt.TimeFrame.Years,
-                    riskfreerate=0.01)
+# # Add TimeReturn Analyzers fot the annuyl returns
+# cerebro.addanalyzer(bt.analyzers.TimeReturn, timeframe=bt.TimeFrame.Years)
+# # Add a SharpeRatio
+# cerebro.addanalyzer(bt.analyzers.SharpeRatio, timeframe=bt.TimeFrame.Years,
+#                     riskfreerate=0.01)
 
-# Add SQN to qualify the trades
-cerebro.addanalyzer(bt.analyzers.SQN)
-cerebro.addobserver(bt.observers.DrawDown)  # visualize the drawdown evol
+# # Add SQN to qualify the trades
+# cerebro.addanalyzer(bt.analyzers.SQN)
+# cerebro.addobserver(bt.observers.DrawDown)  # visualize the drawdown evol
 
 cerebro.broker.setcash(10000.00)
 
-cerebro.addwriter(bt.WriterFile, csv=True, out='Test_KDJ.csv', rounding=1)
+# cerebro.addwriter(bt.WriterFile, csv=True, out='Test_KDJ.csv', rounding=1)
 
 print('Starting Portfolio Value: %.2f' % cerebro.broker.getvalue())
 start_portfolio_value = cerebro.broker.getvalue()
@@ -96,11 +109,14 @@ start_portfolio_value = cerebro.broker.getvalue()
 results = cerebro.run()
 result = results[0]
 
+print(last_k_value, second_k_value)
+print(last_d_value, second_d_value)
+
 print('Final Portfolio Value: %.2f' % cerebro.broker.getvalue())
 end_portfolio_value = cerebro.broker.getvalue()
 print("PnL:", end_portfolio_value - start_portfolio_value)
 
-for alyzer in result.analyzers:
-    alyzer.print()
+# for alyzer in result.analyzers:
+#     alyzer.print()
 
 cerebro.plot()

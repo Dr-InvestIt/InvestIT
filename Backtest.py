@@ -32,6 +32,10 @@ class SmaCross(bt.SignalStrategy):
             self.order = None
 
     def next(self):
+
+        global last_value
+        last_value = self.fast_moving_average.get(-1)[0]
+
         if self.order:
             return
 
@@ -61,6 +65,7 @@ cerebro.addsizer(bt.sizers.AllInSizer, percents=95)
 cerebro.addanalyzer(bt.analyzers.SharpeRatio, _name='mysharpe')
 
 thestrats = cerebro.run()
+print(last_value)
 thestrat = thestrats[0]
 
 print('Final Portfolio Value: %.2f' % cerebro.broker.getvalue())

@@ -27,6 +27,9 @@ class KDJStrategy(bt.Strategy):
         self.crossover = bt.indicators.CrossOver(self.K, self.D, plot=True)
         # self.above
 
+        self.highest = bt.indicators.Highest(period=self.p.period, plot=False)
+        self.lowest = bt.indicators.Lowest(period=self.p.period, plot=False)
+
         self.buy_signal = (self.crossover == 1)
         self.sell_signal = (self.crossover == -1)
 
@@ -42,16 +45,22 @@ class KDJStrategy(bt.Strategy):
     def next(self):
 
         global last_k_value
-        last_k_value = self.K.get(-1)[0]
+        last_k_value = float(self.K.get(-1)[0])
 
         global second_k_value
-        second_k_value = self.K.get(-2)[0]
+        second_k_value = float(self.K.get(-2)[0])
 
         global last_d_value
-        last_d_value = self.D.get(-1)[0]
+        last_d_value = float(self.D.get(-1)[0])
 
         global second_d_value
-        second_d_value = self.D.get(-2)[0]
+        second_d_value = float(self.D.get(-2)[0])
+
+        global highest
+        highest = float(self.highest.get(-1)[0])
+
+        global lowest
+        lowest = float(self.lowest.get(-1)[0])
 
         if self.order:
             return
@@ -73,7 +82,7 @@ stock = 'AAPL'
 
 fromdate = '2015-07-06'
 
-todate = '2021-08-09'
+todate = '2021-09-03'
 
 data = bt.feeds.PandasData(dataname=yf.download(
     stock, fromdate, todate, auto_adjust=True))
@@ -109,13 +118,26 @@ start_portfolio_value = cerebro.broker.getvalue()
 results = cerebro.run()
 result = results[0]
 
-print(last_k_value, second_k_value)
-print(last_d_value, second_d_value)
+print("Previou K Values", last_k_value, second_k_value)
+print("Previou D Values", last_d_value, second_d_value)
 
 print('Final Portfolio Value: %.2f' % cerebro.broker.getvalue())
 end_portfolio_value = cerebro.broker.getvalue()
 print("PnL:", end_portfolio_value - start_portfolio_value)
 
+print()
+
+print("Enter the newest price for", stock, ": ")
+newest_price = float(input())
+
+# RSV = (newest_price - highest) * (highest - lowest) * 100
+# K_value = ((2/3) * last_k_value) + ((1/3) * RSV)
+# D_value = ((2/3) * last_d_value) + ((1/3) * K_value)
+
+K_value = (newest_price - lowest) / (highest - lowest) * 100
+D_value = K_value + last_k_value + second_k_value
+D_value = float(D_value) / 3
+print(K_value, D_value)
 # for alyzer in result.analyzers:
 #     alyzer.print()
 

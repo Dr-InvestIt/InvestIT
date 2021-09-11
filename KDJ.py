@@ -82,7 +82,7 @@ stock = 'AAPL'
 
 fromdate = '2015-07-06'
 
-todate = '2021-09-03'
+todate = '2021-09-02'
 
 data = bt.feeds.PandasData(dataname=yf.download(
     stock, fromdate, todate, auto_adjust=True))

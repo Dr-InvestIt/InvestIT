@@ -8,7 +8,8 @@ import matplotlib.pyplot as plt
 import io
 import urllib
 import base64
-
+import csv, io
+from django.contrib.auth.decorators import permission_required
 efficiency_frontier_stocks = {}
 
 
@@ -451,4 +452,33 @@ def item_detail_view(request):
     context = {
 
     }
+    return render(request, "stocks/frontier_create.html", context)
+
+# @permission_required('admin.can.add_log_entry')
+def stock_upload(request):
+    template = 'stocks/frontier_create.html'
+    prompt = {
+        'order' : 'Order of the CSV should be Stock ticker and postion'
+    }
+
+    if request.method == 'GET':
+        return render(request, template, prompt)
+    
+    csv_file = request.FILES['file']
+
+    if not csv_file.name.endswith('.csv'):
+        message.error(request,'This is not a csv file')
+
+    data_set = csv_file.file.read().decode('UTF-8')
+    io_string = io.StringIO(data_set)
+    next(io_string)
+    
+    for column in csv.reader(io_string, delimiter = ','):
+        print('Hi')
+        t = Stock.objects.create(
+            stock_id = column[0],
+            stock_value = column[1]
+        )
+        efficiency_frontier_stocks[t.stock_id]=t.stock_value
+    context = {'stocks': efficiency_frontier_stocks}
     return render(request, "stocks/frontier_create.html", context)

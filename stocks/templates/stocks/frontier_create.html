@@ -7,6 +7,25 @@
 <script src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script>
 <script src="https://cdn.datatables.net/1.10.19/js/dataTables.bootstrap4.min.js"></script>
 <br>
+
+{% if message %}
+    {% for message in messages%}
+        <div>
+            <strong>
+                {{message|safe}}
+            </strong>
+            </div>
+    {% endfor%}
+{% else %}
+    {{order}}
+    <form action="{% url 'stock_upload' %}" method = 'post' enctype="multipart/form-data"> {%csrf_token%}
+    <label>Upload a file</label>
+    <input type = 'file' name = 'file'>
+    <p>Only accepts csv files</p>
+    <button type = 'submit'>Upload</button>
+</form>  
+{%endif%}  
+
 <p>Enter stock ID to see the efficiency frontier</p>
 <form action="{% url 'frontier' %}" method = 'POST'> {%csrf_token%}
     {{form.as_p}}
@@ -15,6 +34,9 @@
 
     
 </form>
+
+
+
 
     <br></br>
     <form action="{% url 'saveFrontierData' %}" method="post">{%csrf_token%}
@@ -91,6 +113,8 @@
     var activeItem = document.querySelector("a[href='" + path + "']");
     activeItem.className = 'a active';
 </script>
+
+
 
 {%endblock%}
 

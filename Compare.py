@@ -11,12 +11,14 @@ import pandas as pd
 
 BTVERSION = tuple(int(x) for x in bt.__version__.split('.'))
 
+best_statements = []
 
 def runstrategy(strategy, stock):
     cerebro = bt.Cerebro()
 
     data = bt.feeds.PandasData(dataname=yf.download(
-        stock, fromdate, todate, auto_adjust=True))
+            stock, fromdate, todate, auto_adjust=True))
+
 
     cerebro.adddata(data)
 
@@ -51,33 +53,71 @@ def runstrategy(strategy, stock):
 
 
 def testallstratonstock(stock):
+
+    print(stock)
+    
     strategies_list = [KDJ_MACDStrategy, KDJStrategy, MacdCross, GoldenCross]
 
     best_result = ["Strats were all worse", 0]
 
-    for strategy in strategies_list:
-        result = runstrategy(strategy, stock)
-        if result[1] > best_result[1]:
-            best_result[0] = result[0]
-            best_result[1] = result[1]
+    file = open("Compare Result.txt")
+    if (stock in file.read()):
+        # matched_lines = [line for line in file.read().split('\n') if stock in line]
+        # best_result
+        print()
+    else:
+        for strategy in strategies_list:
+            result = runstrategy(strategy, stock)
+            if result[1] > best_result[1]:
+                best_result[0] = result[0]
+                best_result[1] = result[1]
 
-    path = './'
-    all_files = glob.glob(os.path.join(path, "*.csv"))
-    path = './Final/'
-    excel_name = path + stock + " Results.xlsx"
-    writer = pd.ExcelWriter(excel_name, engine='xlsxwriter')
-    for file in all_files:
-        df = pd.read_csv(file)
-        df.to_excel(writer, sheet_name=os.path.splitext(
-            os.path.basename(file))[0])
+        path = './'
+        all_files = glob.glob(os.path.join(path, "*.csv"))
+        path = './Final/'
+        excel_name = path + stock + " Results.xlsx"
+        writer = pd.ExcelWriter(excel_name, engine='xlsxwriter')
+        for file in all_files:
+            df = pd.read_csv(file)
+            df.to_excel(writer, sheet_name=os.path.splitext(
+                os.path.basename(file))[0])
 
-    writer.save()
+        writer.save()
 
-    print()
-    print("Best strategy for", stock, "is",
-          best_result[0], "with a PnL of", best_result[1])
-    print()
-    input("Press Enter to continue...")
+        print()
+        result_file = open('Compare Result.txt', 'a')
+        statement = stock + ", " + str(best_result[0]) + ", " + str(best_result[1])
+        result_file.writelines(statement + '\n')
+        result_file.close()
+        print(statement)
+        print()
+    # input("Press Enter to continue...")
+    
+    # for strategy in strategies_list:
+    #     result = runstrategy(strategy, stock)
+    #     if result[1] > best_result[1]:
+    #         best_result[0] = result[0]
+    #         best_result[1] = result[1]
+
+    # path = './'
+    # all_files = glob.glob(os.path.join(path, "*.csv"))
+    # path = './Final/'
+    # excel_name = path + stock + " Results.xlsx"
+    # writer = pd.ExcelWriter(excel_name, engine='xlsxwriter')
+    # for file in all_files:
+    #     df = pd.read_csv(file)
+    #     df.to_excel(writer, sheet_name=os.path.splitext(
+    #         os.path.basename(file))[0])
+
+    # writer.save()
+
+    # print()
+    # result_file = open('Compare Result.txt', 'a')
+    # statement = stock + ", " + str(best_result[0]) + ", " + str(best_result[1])
+    # result_file.writelines(statement + '\n')
+    # result_file.close()
+    # print(statement)
+    # print()
 
     return best_result
 
@@ -87,8 +127,9 @@ todate = '2021-08-21'
 
 
 def testmultiplestock():
-    stocks = ['AAPL', "GOOGL", "MSFT", "AMZN", "FB",
-              "GOOG", "TSLA", "NVDA", "JPM"]
+
+    file = open('SPY.txt', 'r')
+    stocks = [line.rstrip() for line in file]
 
     best_strats = []
 
@@ -113,3 +154,4 @@ def testmultiplestock():
 
 
 testmultiplestock()
+print(best_statement)

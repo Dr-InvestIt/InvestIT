@@ -31,7 +31,7 @@ class KDJ_MACDStrategy(bt.Strategy):
     def __init__(self):
         # KDJ Plot
         self.kd = bt.indicators.StochasticFull(
-            self.data0, period=self.p.kdj_period, period_dfast=self.p.kdj_period_dfast, period_dslow=self.p.kdj_period_dslow)
+            self.data0, period=self.p.kdj_period, period_dfast=self.p.kdj_period_dfast, period_dslow=self.p.kdj_period_dslow, safediv=True)
 
         self.K = self.kd.percD
         self.D = self.kd.percDSlow
@@ -94,7 +94,7 @@ class KDJStrategy(bt.Strategy):
     def __init__(self):
 
         self.kd = bt.indicators.StochasticFull(
-            self.data0, period=self.p.period, period_dfast=self.p.period_dfast, period_dslow=self.p.period_dslow)
+            self.data0, period=self.p.period, period_dfast=self.p.period_dfast, period_dslow=self.p.period_dslow, safediv=True)
 
         self.K = self.kd.percD
         self.D = self.kd.percDSlow

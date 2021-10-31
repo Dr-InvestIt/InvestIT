@@ -171,7 +171,7 @@ def save_stock_entry_view(request):
         # 'image': uri,
         'stocks': efficiency_frontier_stocks,
         # 'plot_div': plot_div
-        'showstock': result
+        'showstock': results
     }
 
     return render(request, 'stocks/frontier_create.html', context)

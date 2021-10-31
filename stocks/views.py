@@ -9,8 +9,6 @@ import io
 import urllib
 import base64
 
-efficiency_frontier_stocks = {}
-
 
 def index_view(request):
 
@@ -103,39 +101,19 @@ def plot_efficient_frontier(request):
     }
     return render(request, 'stocks/frontier_create.html', context)
 
+efficiency_frontier_stocks = {}
 
 def stock_create_efficient_frontier_view(request):
     # graph_form = GraphForm(request.POST or None)
     form = EfficientForm(request.POST or None)
 
-    # stocks = Stock.objects.all()
-
-    # uri = ''
-    # plot_div = ''
     if form.is_valid():
 
         name = form.cleaned_data['stock_id']
         value = form.cleaned_data['stock_value']
         efficiency_frontier_stocks[name] = value
+        print(efficiency_frontier_stocks)
 
-        # stock_name = []
-
-        # for item in stocks:
-        #     stock_name.append(item.stock_id)
-        # print(stock_name)
-        # if len(stock_name) >= 2:
-
-        #     plot_div = interactive_efficient_frontier(stock_name)
-        # save image as html div and output it on html
-
-        # fig = plt.gcf()
-        # buf = io.BytesIO()
-        # fig.savefig(buf, format='png')
-        # buf.seek(0)
-        # string = base64.b64encode(buf.read())
-        # uri = 'data:image/png;base64,' + urllib.parse.quote(string)
-
-    # graph_form = GraphForm()
     form = EfficientForm()
 
     results = SP500.objects.all

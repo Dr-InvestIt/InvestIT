@@ -104,8 +104,6 @@ def plot_efficient_frontier(request):
 efficiency_frontier_stocks = {}
 
 def stock_create_efficient_frontier_view(request):
-    if context.stocks:
-        efficiency_frontier_stocks = context.stocks
     # graph_form = GraphForm(request.POST or None)
     form = EfficientForm(request.POST or None)
 

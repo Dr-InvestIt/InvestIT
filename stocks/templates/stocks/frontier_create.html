@@ -17,7 +17,13 @@
     </datalist>
 
     <input type = 'submit' value = 'Enter'/>
-
+    <p>
+        {% for key, value in stocks.items %}
+        <tr>
+            <td> {{ key }} </td>
+            <td> {{ value}} </td>
+        </tr>
+    </p>
     
 </form>
 

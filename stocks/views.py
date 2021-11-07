@@ -108,9 +108,7 @@ def plot_efficient_frontier(request):
         'form': form,
         'stocks': efficiency_frontier_stocks,
         'output_string': output_string,
-        'showstock': results, 
-        'empty': empty, 
-        'empty_message': empty_message
+        'showstock': results
     }
     return render(request, 'stocks/frontier_create.html', context)
 

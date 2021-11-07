@@ -15,7 +15,7 @@
         <option value="{{ results.stock_id }}">
         {% endfor %}
     </datalist>
-
+    
     <input type = 'submit' value = 'Enter'/>
     <p>
         {% for key, value in stocks.items %}
@@ -30,6 +30,7 @@
 
     <br></br>
     <form action="{% url 'saveFrontierData' %}" method="post">{%csrf_token%}
+    
     <div id="positions" class="container mb-3 mt-3" style="display: block">
         <table class="table table-striped table-bordered mydatatable" style="width: 100%">
             <thead>

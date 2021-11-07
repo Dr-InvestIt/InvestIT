@@ -49,7 +49,13 @@ def stock_create_volatility_view(request):
 
 # Delete a stock
 def delete_stock(request, stock_id):
+    try:
+        efficiency_frontier_stocks = request.session['stocks']
+    except:
+        pass
+    
     efficiency_frontier_stocks.pop(stock_id, None)
+    request.session['stocks'] = efficiency_frontier_stocks
     return redirect('frontier')
 
 
@@ -81,6 +87,11 @@ def plot_efficient_frontier(request):
     stock_value = []
     output_string = ''
 
+    try:
+        efficiency_frontier_stocks = request.session['stocks']
+    except:
+        pass
+
     for item in efficiency_frontier_stocks:
         stock_name.append(item)
         stock_value.append(efficiency_frontier_stocks[item])
@@ -97,21 +108,29 @@ def plot_efficient_frontier(request):
         'form': form,
         'stocks': efficiency_frontier_stocks,
         'output_string': output_string,
-        'showstock': results
+        'showstock': results, 
+        'empty': empty, 
+        'empty_message': empty_message
     }
     return render(request, 'stocks/frontier_create.html', context)
-
-efficiency_frontier_stocks = {}
 
 def stock_create_efficient_frontier_view(request):
     # graph_form = GraphForm(request.POST or None)
     form = EfficientForm(request.POST or None)
+
+    try:
+        efficiency_frontier_stocks = request.session['stocks']
+    except:
+        request.session['stocks'] = {}
+        efficiency_frontier_stocks = request.session['stocks']
+
 
     if form.is_valid():
 
         name = form.cleaned_data['stock_id']
         value = form.cleaned_data['stock_value']
         efficiency_frontier_stocks[name] = value
+        request.session['stocks'] = efficiency_frontier_stocks
         print(efficiency_frontier_stocks)
 
     form = EfficientForm()
@@ -133,13 +152,17 @@ def stock_create_efficient_frontier_view(request):
 def save_stock_entry_view(request):
 
     form = EfficientForm(request.POST or None)
-
-    print(efficiency_frontier_stocks)
-    for item in efficiency_frontier_stocks:
-        name = item
-        value = efficiency_frontier_stocks[item]
-        t = Stock(stock_id=name, stock_value=value)
-        t.save()
+    try:
+        efficiency_frontier_stocks = request.session['stocks']
+        for item in efficiency_frontier_stocks:
+            name = item
+            value = efficiency_frontier_stocks[item]
+            t = Stock(stock_id=name, stock_value=value)
+            t.save()
+    except:
+        pass
+    
+    
 
     results = SP500.objects.all
 
@@ -149,7 +172,7 @@ def save_stock_entry_view(request):
         # 'image': uri,
         'stocks': efficiency_frontier_stocks,
         # 'plot_div': plot_div
-        'showstock': results
+        'showstock': results,
     }
 
     return render(request, 'stocks/frontier_create.html', context)

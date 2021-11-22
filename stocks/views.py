@@ -468,3 +468,10 @@ def item_detail_view(request):
 
     }
     return render(request, "stocks/frontier_create.html", context)
+
+def farmaFrench(request):
+    form = EfficientForm(request.POST or None)
+    context = {
+
+    }
+    return render(request, "stocks/farma.html", context)

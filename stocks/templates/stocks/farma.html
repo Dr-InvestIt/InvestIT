@@ -1,0 +1,122 @@
+{%extends 'base.html'%}
+
+{% block content %}
+<script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+<link rel="stylesheet" href="https://cdn.datatables.net/1.10.19/css/dataTables.bootstrap4.min.css">
+<script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+<script src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script>
+<script src="https://cdn.datatables.net/1.10.19/js/dataTables.bootstrap4.min.js"></script>
+<br>
+<p>Enter stock ID to see the efficiency frontier</p>
+<form action="{% url 'farma' %}" method = 'POST'> {%csrf_token%}
+    {{form.as_p}}
+    <datalist id="stocklist">
+        {% for results in showstock %}
+        <option value="{{ results.stock_id }}">
+        {% endfor %}
+    </datalist>
+    
+    <input type = 'submit' value = 'Enter'/>
+    <p>
+        {% for key, value in stocks.items %}
+        <tr>
+            <td> {{ key }} </td>
+            <td> {{ value}} </td>
+        </tr>
+        {% endfor %}
+    </p>
+    
+</form>
+
+    <br></br>
+    <form action="{% url 'saveFrontierData' %}" method="post">{%csrf_token%}
+    
+    <div id="positions" class="container mb-3 mt-3" style="display: block">
+        <table class="table table-striped table-bordered mydatatable" style="width: 100%">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Value</th>
+                    <th>Delete</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for key, value in stocks.items %}
+                <tr>
+                    <th> {{ key }}</th>
+                    <th> {{ value }}</th>
+                    <th> 
+                        <a href = "{%url 'delete-stock' key %}" class = "btn btn-outline-danger btn-sm">Delete</a>
+                    </th>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+
+
+
+    <button id="saveData" class="btn btn-success" onclick="saveSuccessful()">Save</button>
+</form>
+
+    <!-- <input type = 'text' name = 'new' placeholder="AAPL">
+    <input type = 'text' name = 'stock value' placeholder="4000">
+    <button type = 'submit', name = 'newItem', value = 'newItem'>Insert</button> -->
+
+
+<!-- Calculate frontier button -->
+<form action="{% url 'calcualteFrontier' %}" method="post">{% csrf_token %}
+    
+    <p>{{output_string}}</p>
+    
+    <img src="{{ image }}">
+    {% autoescape off %}
+    {{ plot_div }}
+    {% endautoescape %}
+
+    <input type = 'submit' value = 'Calculate Frontier'/>
+    <p></p>
+</form>
+<!-- <button id="calculateFrontier" onclick="calcualteFrontier()">Calculate Frontier</button> -->
+
+
+<!-- Hide Button -->
+<button id="showButton" class="btn btn-outline-secondary" onclick="hideFunction()">Hide Positions</button>
+
+<script>
+    function hideFunction() {
+        var x = document.getElementById("positions");
+        if (x.style.display == "block") {
+            x.style.display = "none";
+            document.getElementById("showButton").innerHTML = "Show Positions";
+            document.getElementById("showButton").className = "btn btn-secondary"
+        } else {
+            x.style.display = "block";
+            document.getElementById("showButton").innerHTML = "Hide Positions"
+            document.getElementById("showButton").className = "btn btn-outline-secondary"
+        }
+    }
+</script>
+
+<!-- setting nav bar active -->
+<script>
+    var path = location.pathname;
+    var activeItem = document.querySelector("a[href='" + path + "']");
+    activeItem.className = 'a active';
+</script>
+
+{%endblock%}
+
+<!-- <br>
+<p>Enter stock ID to see the efficiency frontier</p>
+<form method = 'POST'> {%csrf_token%}
+    {{form.as_p}}
+    <input type = 'submit' value = 'Go'/>
+    <p></p>
+    <input type = 'text' name = 'new' placeholder="AAPL">
+    <input type = 'text' name = 'stock value' placeholder="4000">
+    <button type = 'submit', name = 'newItem', value = 'newItem'>Insert</button>
+
+    <img src="{{ image }}">
+    
+</form> -->

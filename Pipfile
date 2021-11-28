@@ -18,6 +18,8 @@ plotly = "*"
 gunicorn = "*"
 django-heroku = "*"
 psycopg2 = "*"
+statsmodels = "*"
+getFamaFrenchFactors = "*"
 
 [dev-packages]
 

@@ -7,7 +7,7 @@
 <script src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script>
 <script src="https://cdn.datatables.net/1.10.19/js/dataTables.bootstrap4.min.js"></script>
 <br>
-<p>Enter stock ID to see the efficiency frontier</p>
+<p>Enter stock ID to see the Farma French Risk Assessment</p>
 <form action="{% url 'farma' %}" method = 'POST'> {%csrf_token%}
     {{form.as_p}}
     <datalist id="stocklist">
@@ -21,11 +21,12 @@
         {% for key, value in stocks.items %}
         <tr>
             <td> {{ key }} </td>
-            <td> {{ value}} </td>
         </tr>
         {% endfor %}
     </p>
-    
+    <!-- <p>{{ stocks }}</p>
+    <p>{{ farma_french_monthly_yield }}</p>
+    <p>{{ farma_french_yearly_yield }}</p> -->
 </form>
 
     <br></br>
@@ -36,17 +37,17 @@
             <thead>
                 <tr>
                     <th>ID</th>
-                    <th>Value</th>
+                    <th>Yearly Yield</th>
                     <th>Delete</th>
                 </tr>
             </thead>
             <tbody>
-                {% for key, value in stocks.items %}
+                {% for key, value in farma_french_yearly_yield.items %}
                 <tr>
                     <th> {{ key }}</th>
                     <th> {{ value }}</th>
                     <th> 
-                        <a href = "{%url 'delete-stock' key %}" class = "btn btn-outline-danger btn-sm">Delete</a>
+                        <a href = "{%url 'delete-farma-stock' key %}" class = "btn btn-outline-danger btn-sm">Delete</a>
                     </th>
                 </tr>
                 {% endfor %}
@@ -59,25 +60,6 @@
     <button id="saveData" class="btn btn-success" onclick="saveSuccessful()">Save</button>
 </form>
 
-    <!-- <input type = 'text' name = 'new' placeholder="AAPL">
-    <input type = 'text' name = 'stock value' placeholder="4000">
-    <button type = 'submit', name = 'newItem', value = 'newItem'>Insert</button> -->
-
-
-<!-- Calculate frontier button -->
-<form action="{% url 'calcualteFrontier' %}" method="post">{% csrf_token %}
-    
-    <p>{{output_string}}</p>
-    
-    <img src="{{ image }}">
-    {% autoescape off %}
-    {{ plot_div }}
-    {% endautoescape %}
-
-    <input type = 'submit' value = 'Calculate Frontier'/>
-    <p></p>
-</form>
-<!-- <button id="calculateFrontier" onclick="calcualteFrontier()">Calculate Frontier</button> -->
 
 
 <!-- Hide Button -->

@@ -8,6 +8,12 @@ import matplotlib.pyplot as plt
 import io
 import urllib
 import base64
+import pandas as pd
+import yfinance as yf
+import statsmodels.api as sm
+import getFamaFrenchFactors as gff
+from datetime import datetime
+from dateutil.relativedelta import relativedelta
 
 
 def index_view(request):
@@ -470,8 +476,86 @@ def item_detail_view(request):
     return render(request, "stocks/frontier_create.html", context)
 
 def farmaFrench(request):
-    form = EfficientForm(request.POST or None)
-    context = {
+    form = StockForm(request.POST or None)
 
+    try:
+        farma_stocks = request.session['farma-stocks']
+    except:
+        request.session['farma-stocks'] = []
+        farma_stocks = request.session['farma-stocks']
+
+    if form.is_valid():
+        name = form.cleaned_data.get('stock_id')
+        if name not in farma_stocks:
+            farma_stocks.append(name)
+        request.session['farma-stocks'] = farma_stocks
+    
+    form = StockForm()
+
+    results = SP500.objects.all
+
+    farma_french_monthly_yield = calculate_farma(farma_stocks)[0]
+    farma_french_yearly_yield = calculate_farma(farma_stocks)[1]
+
+    context = {
+        'form': form,
+        'stocks': farma_stocks, 
+        'showstock': results, 
+        'farma_french_monthly_yield': farma_french_monthly_yield, 
+        'farma_french_yearly_yield': farma_french_yearly_yield
     }
     return render(request, "stocks/farma.html", context)
+
+# Delete a stock
+def delete_farma_stock(request, stock_id):
+    try:
+        farma_stocks = request.session['farma-stocks']
+    except:
+        pass
+    
+    farma_stocks.remove(stock_id)
+    request.session['farma-stocks'] = farma_stocks
+    return redirect('farma')
+
+# def calculateFarma(request):
+def calculate_farma(ticker):
+    today = datetime.now()
+    start = today + relativedelta(month=+6)
+    end = today.strftime('%Y-%m-%d')
+
+    return(ff5(ticker, start, end))
+
+def ff5 (ticker,start,end):
+    
+  expected_monthly_return = {}
+  expected_yearly_return = {}
+
+  for i in range(len(ticker)):
+    stock_data = yf.download(ticker[i], start, end, adjusted=True)
+
+    ff5_monthly = gff.famaFrench5Factor(frequency='m')
+    ff5_monthly.rename(columns={"date_ff_factors": 'Date'}, inplace=True)
+    ff5_monthly.set_index('Date', inplace=True)
+
+    stock_returns = stock_data['Adj Close'].resample('M').last().pct_change().dropna()
+    stock_returns.name = "Month_Rtn"
+    ff_data = ff5_monthly.merge(stock_returns,on='Date')
+
+    X = ff_data[['Mkt-RF', 'SMB', 'HML','RMW','CMA']]
+    y = ff_data['Month_Rtn'] - ff_data['RF']
+    X = sm.add_constant(X)
+    ff_model = sm.OLS(y, X).fit()
+    print(ff_model.summary())
+    intercept, b1, b2, b3, b4, b5 = ff_model.params
+
+    rf = ff_data['RF'].mean()
+    market_premium = ff5_monthly['Mkt-RF'].mean()
+    size_premium = ff5_monthly['SMB'].mean()
+    value_premium = ff5_monthly['HML'].mean()
+    profitability = ff5_monthly['RMW'].mean()
+    cma = ff5_monthly['CMA'].mean()
+
+    expected_monthly_return[ticker[i]] = rf + b1 * market_premium + b2 * size_premium + b3 * value_premium + b4 * profitability + b5* cma
+    expected_yearly_return[ticker[i]] = expected_monthly_return[ticker[i]] * 12
+    print("Expected yearly return: " + str(expected_yearly_return))
+  return expected_monthly_return, expected_yearly_return

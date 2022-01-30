@@ -1,5 +1,7 @@
 from django.urls import path
 from . import views
+# A clean, elegant URL scheme is an important detail in a high-quality web application. 
+# Django lets you design URLs however you want, with no framework limitations.
 
 urlpatterns = [
     path('', views.index_view),

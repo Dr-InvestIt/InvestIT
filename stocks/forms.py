@@ -2,6 +2,8 @@ from django import forms
 from django.forms.widgets import Widget
 from .models import Stock
 
+#Django provides a range of tools and libraries to help you build forms to accept input from site visitors, 
+# and then process and respond to the input.
 
 class StockForm(forms.ModelForm):
     class Meta:

@@ -10,14 +10,14 @@ Enter your portfolio details here and our website calculates the efficient front
 
 ![image](https://user-images.githubusercontent.com/45712833/138455387-eada3a11-bda0-4745-8fce-62f0c35f6427.png)
 
-#Setup
+# Setup
 
 ## pipenv
 
 Used pipenv for python virtual environment
 
 
-Members:
+# Members:
 Jialong Yu LinkedIn Link: https://www.linkedin.com/in/jialongyu/
 
 GuangZhong Chen
